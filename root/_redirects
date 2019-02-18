@@ -1,1 +1,5 @@
+# Pass all paths to vue.js router
 /*    /index.html   200
+
+# Retrofit existing blog URLs to new URL structure
+/blog/article/:slug    /blog/:slug   301
