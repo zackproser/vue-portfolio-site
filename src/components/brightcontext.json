@@ -1,0 +1,153 @@
+{
+    "article": {
+        "title": "example glossary",
+        "content": "<h2>Project source</h2>
+
+<p><a href=\"https://github.com/zackproser/docker-express-nodeunit\">View and clone the project here</a></p>
+
+<h2>Project overview</h2>
+
+<p>This project demonstrates how to set up a Dockerized web service in node.js, using nodeunit tests for coverage, which prevents bad builds from being shipped.</p>
+<p>The project includes a bash script that wraps nodeunit coverage for the web service. If any changes are introduced which cause any one of the nodeunit tests to fail, the Docker build will terminate.</p>
+<p>This makes it easier to prevent bad builds from being shipped to production.</p>
+<h2><a id=\"Try_it_out_10\"></a>Try it out</h2>
+<pre><code><code class=\"language-bash\">git <span class=\"hljs-built_in\">clone</span> https://github.com/zackproser/docker-express-nodeunit.git
+<span class=\"hljs-built_in\">cd</span> docker-express-nodeunit
+docker build .
+</code></code></pre>
+<h2><a id=\"Loading_an_Express_web_service_in_nodeunit_18\"></a>Loading an Express web service in nodeunit</h2>
+<p>Here’s a trick for running your express based web service in nodeunit tests. You can wrap your app.listen call in a check that determines whether or not the file is being loaded by a calling script (as it will be in the case of nodeunit loading it):</p>
+<pre><code>if (!module.parent) {
+    app.listen(app.get('port'), () => {
+        console.log(`Example project listening on port ${app.get('port')}`)
+    })
+}</code></pre>
+<h2><a id=\"Running_your_Express_web_service_locally_during_testing_30\"></a>Running your Express web service locally during testing</h2>
+<p>With the above changes in place, we can leverage node’s built-in http module to load our app.js (and its included Express routes) and then run it locally:</p>
+<pre><code>const
+  nodeunit = require('nodeunit')
+  , app = require('../app')
+  , request = require('request')
+  , httpServer = require('http').createServer(app)
+  , testPort = 3333
+  , testUriRoot = `http://localhost:${testPort}`
+
+/*
+  Run before every individual test
+
+  Loads app.js and its express routes
+  in order to create an http server
+  and listen on the test port
+
+  @param {Function} setupCallback Function to run when processing is complete
+  @return {void}
+ */
+exports.setUp = (setupCallback) => {
+  httpServer.listen(testPort, setupCallback)
+}</code></pre>
+<p>By leveraging nodeunit’s setUp functionality, we can ensure that our local test server is available before every individual test is executed.</p>
+<p>This allows us to write nodeunit tests that make requests to our actual web service, the same service that will run in production, which means we can test how functionality like validation will behave:</p>
+<pre><code>//Tests that POSTing to /example without a url param returns an error
+exports.testBadPostRequestIsRejected = (test) => {
+  let badOptions = {}
+  request({
+    uri: `${testUriRoot}/example`,
+    method: 'POST',
+    json: true
+  }, (err, resp, body) => {
+    test.equals(400, resp.statusCode)
+    test.equals(body.msg, 'You must supply a URL')
+    test.done()
+  })
+}</code></pre>
+<p>This test will make a request to our web service, passing a bad body that’s missing a required parameter.</p>
+<p>Just as we defined a setUp function, we define a tearDown function that will run after every individual test. This ensures that our local test service will be closed down cleanly following testing:</p>
+<pre><code>/**
+ * Runs after every individual test
+ *
+ * Shuts down the local HTTP server
+ *
+ * @param  {Function} tearDownCallback Function to run when processing is complete
+ * @return {void}
+ */
+exports.tearDown = (tearDownCallback) => {
+  httpServer.close(tearDownCallback)
+}</code></pre>
+<h2><a id=\"Hooking_nodeunit_test_run_status_into_Docker_95\"></a>Hooking nodeunit test run status into Docker</h2>
+<p>Now that we have a test setup that covers our web service, how do we ensure that only good builds are created?</p>
+<p>Docker will exit in the middle of a build if any of the commands (or scripts that those commands reference) exit with a non-zero status, signifying an error.</p>
+<p>To this end, we next create a script, <a href=\"http://runTests.sh\">runTests.sh</a>, which wraps our nodeunit test suite:</p>
+<pre><code>#!/usr/bin/env bash
+
+###############################################
+# Runs nodeunit tests - and breaks bad builds
+#
+# Captures exit code of nodeunit tests and exits
+# with it.
+#
+# Docker will see a non-zero exit status as a failure,
+# preventing the Docker build from completing
+#
+
+echo \"Running nodeunit tests...\"
+
+nodeunit tests/example-tests.js > testsOutput
+
+# Inspect the exit code of the last command
+if [ $? -eq 0 ]; then
+  echo \"All tests passed!\"
+  # This will exit cleanly
+  exit 0
+else
+  echo \"ERROR: Not all tests passed! This build will terminate until code is fixed!\"
+  # This will break the Docker build
+  exit 1
+fi
+
+# Read the output of the tests to STDOUT
+# so they'll be visible during a Docker build
+cat testsOutput && rm testsOutput</code></pre>
+
+<p>Our script inspects the outcome our nodeunit test run using $?, which in bash references the exit code of the last executed command.</p>
+<p>With this in place, we can add this script to our Dockerfile. During a build, we’ll add this script to the container, chmod it so that it’s executable, and run it.</p>
+<p>If it exits with a 0 status, meaning that every one of our nodeunit tests passed, Docker will continue building our image. If even a single nodeunit test fails, Docker will see our script exiting with an error, and stop building the bad container until someone can debug and fix the underlying issue in the web service codebase.</p>
+<p>Here’s what our Dockerfile looks like:</p>
+<pre><code><code>FROM node:boron
+
+LABEL maintainer=&quot;<a href=\"/cdn-cgi/l/email-protection\" class=\"__cf_email__\" data-cfemail=\"304a51535b40425f43554270575d51595c1e535f5d\">[email&#160;protected]</a>&quot;
+
+# Set the workdir, the directory in the resulting container
+# to which all following paths in this Dockerfile will be relative
+WORKDIR /app/
+
+COPY public public/
+
+COPY routes routes/
+
+COPY views views/
+
+COPY tests tests/
+
+ADD app.js package.json runTests.sh /app/
+
+# Prevents excessive npm logging to STDOUT (only errors will be echoed)
+ENV NPM_CONFIG_LOGLEVEL error
+
+# Install all node modules; also install nodeunit globally so it can be called in our runTests.sh bash script
+RUN npm i &amp;&amp; npm i -g nodeunit
+
+# Modify script so it can be run
+RUN chmod +x runTests.sh
+
+# Run the tests script, which in turn calls nodeunit
+# And exits with the exit status of nodeunit
+# Docker will error out if it sees a non-zero exit status from any command
+# Therefore, the failure of a single nodeunit test (caused by bad code or project changes)
+# will result in the Docker build breaking (so you can't ship it)
+RUN /app/runTests.sh
+
+ENTRYPOINT [&quot;node&quot;, &quot;app.js&quot;]
+
+</code></code></pre>"
+    }
+}
