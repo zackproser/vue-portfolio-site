@@ -141,4 +141,7 @@ export default {
 .post-view__content p {
   font-size: 20px;
 }
+.post-view__content img {
+  max-width: 100%;
+}
 </style>

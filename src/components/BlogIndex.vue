@@ -9,6 +9,8 @@
 import ModernDeployment from 'html-loader!./blog/articles/modern-deployment.html'
 import DockerizedExpress from 'html-loader!./blog/articles/dockerized-express-js.html'
 import DockerTips from 'html-loader!./blog/articles/docker-tips-and-tricks.html'
+import ArticleOptimizer from 'html-loader!./blog/articles/open-sourced-article-optimizer.html'
+import CanyonRunner from 'html-loader!./blog/articles/open-source-canyonrunner.html'
 
 const writings = [{
   title: 'Create a Dockerized Express service that prevents bad builds',
@@ -32,6 +34,22 @@ const writings = [{
   slug: 'docker-command-line-tips-and-tricks',
   description: 'Handy tips for working with Docker',
   body: DockerTips,
+  image: ''
+},
+{
+  title: 'I open sourced my content analysis tool',
+  date: '01 May 2017',
+  slug: 'i-open-sourced-my-content-analysis-tool',
+  description: 'Article Optimizer is a full stack PHP app that leverages natural language processing to help you optimize your web content',
+  body: ArticleOptimizer,
+  image: ''
+},
+{
+  title: 'I open sourced my Phaser HTML5 game',
+  date: '01 May 2017',
+  slug: 'i-open-sourced-my-phaser-html-5-game',
+  description: 'Learn how to build a complete game including common subsystems',
+  body: CanyonRunner,
   image: ''
 }]
 

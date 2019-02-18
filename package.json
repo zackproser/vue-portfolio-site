@@ -20,9 +20,11 @@
     "bootstrap-vue": "^2.0.0-rc.11",
     "popper.js": "^1.12.9",
     "vue": "^2.5.2",
+    "vue-highlightjs": "^1.3.3",
     "vue-markdown": "^2.2.4",
     "vue-marked": "^0.1.1",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "growl": ">=1.10.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
