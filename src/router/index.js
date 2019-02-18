@@ -23,6 +23,18 @@ export default new Router({
       props: true
     },
     {
+      path: '/artwork',
+      beforeEnter () {
+        location.href = 'https://instagram.com/zackproser'
+      }
+    },
+    {
+      path: '/resume',
+      beforeEnter () {
+        location.href = 'https://www.linkedin.com/in/zackproser/'
+      }
+    },
+    {
       path: '/software',
       name: 'Software',
       component: Software
