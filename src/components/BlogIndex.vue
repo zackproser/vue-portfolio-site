@@ -22,7 +22,7 @@ const writings = [{
 },
 {
   title: 'Stretching your infrastructure with Forge and Cloudflare',
-  slug: 'a-modern-deployment-pipeline-with-digitalocean-and-laravel-forge-and-cloudflare',
+  slug: 'A-Modern-Deployment-Pipeline-With-DigitalOcean-and-Laravel-Forge-and-Cloudflare',
   date: '04 April 2017',
   description: 'How I once ran 7 node.js and PHP apps, serving over 300,000 requests per month, for $35 with Laravel Forge, DigitalOcean and Cloudflare',
   body: ModernDeployment,
