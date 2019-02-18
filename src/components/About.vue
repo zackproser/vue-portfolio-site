@@ -7,6 +7,8 @@
       <b-row class="intro">
         <b-col sm="12" md="6" lg="6">
           <p class="lead">
+            <strong><em>This site is under active development</em></strong>
+
             <strong>I am a full-stack Software Engineer</strong>. I work on the API team at <a href="https://cloudflare.com" target="_blank">Cloudflare</a>, where I design and build systems and help keep our services running smoothly.
           </p>
           <p class="lead">
