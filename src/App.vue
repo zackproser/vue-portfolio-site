@@ -119,6 +119,7 @@ p.professional-title {
     -moz-transform: scale(.5);
     transform: scale(.5);
     opacity: .4;
+    animation: moveclouds 4.1s infinite;
     -webkit-animation: moveclouds 4.1s linear infinite, sideWays 4s ease-in-out infinite alternate;
     -moz-animation: moveclouds 4.1s linear infinite, sideWays 4s ease-in-out infinite alternate;
     -o-animation: moveclouds 4.1s linear infinite, sideWays 4s ease-in-out infinite alternate
