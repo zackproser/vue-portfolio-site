@@ -80,4 +80,8 @@ export default {
 .nameplate {
   top: -200px !important;
 }
+
+.content-wrapper {
+  max-width: 75%;
+}
 </style>

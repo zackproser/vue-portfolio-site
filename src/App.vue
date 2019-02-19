@@ -85,11 +85,6 @@ p a {
   opacity: 0
 }
 
-.content-wrapper {
-  margin: 35px;
-  width: 60%;
-}
-
 img.mugshot {
   outline: 1px solid white;
   border-radius: 50%;
@@ -101,5 +96,10 @@ p.professional-title {
 
 .outer-row {
   min-height: 1500px !Important;
+}
+
+.content-wrapper {
+  margin: 35px;
+  max-width: 80%;
 }
 </style>
