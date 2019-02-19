@@ -3,7 +3,6 @@ import Router from 'vue-router'
 import About from '@/components/About'
 import Blog from '@/components/BlogIndex'
 import Software from '@/components/SoftwareIndex'
-import SoftwareDetail from '@/components/SoftwareDetail'
 
 Vue.use(Router)
 
@@ -15,12 +14,6 @@ export default new Router({
       path: '/',
       name: 'About',
       component: About
-    },
-    {
-      path: '/blog/:slug?',
-      name: 'blog',
-      component: Blog,
-      props: true
     },
     {
       path: '/artwork',
@@ -35,14 +28,15 @@ export default new Router({
       }
     },
     {
-      path: '/software',
-      name: 'Software',
+      path: '/software/:slug?',
+      name: 'software',
       component: Software
     },
     {
-      path: '/software/:slug',
-      name: 'SoftwareDetail',
-      component: SoftwareDetail
+      path: '/blog/:slug?',
+      name: 'blog',
+      component: Blog,
+      props: true
     }
   ]
 })

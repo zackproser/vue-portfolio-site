@@ -1,111 +1,47 @@
 <template>
   <b-col>
 
-    <nav-links class="my-5"></nav-links>
-
-    <b-row>
-      <p class="lead">
-        My software
-      </p>
-    </b-row>
-
-    <image-row
-      :images="[
-      {
-        src: 'http://www.wealthengine.com/wp-content/uploads/2018/10/logo.png',
-        alt: 'BrightContext Corporation',
-        relLink: '/software/sluggy'
-      },
-      {
-        src: 'http://www.wealthengine.com/wp-content/uploads/2018/10/logo.png',
-        alt: 'WealthEngine'
-      },
-      {
-        src: 'http://www.wealthengine.com/wp-content/uploads/2018/10/logo.png',
-        alt: 'Cloudmark'
-      },
-      {
-        src: 'http://www.wealthengine.com/wp-content/uploads/2018/10/logo.png',
-        alt: 'Cloudflare'
-      },
-      {
-        src: 'http://www.wealthengine.com/wp-content/uploads/2018/10/logo.png',
-        alt: 'Johns Hopkins'
-      }
-      ]"
-      title=""
-    >
-
-    </image-row>
-
-    <image-row
-     :images="[
-      {
-        src: 'https://via.placeholder.com/150',
-        alt: 'BrightContext Corporation',
-        link: 'https://www.crunchbase.com/organization/brightcontext'
-      },
-      {
-        src: 'https://via.placeholder.com/150',
-        alt: 'WealthEngine'
-      },
-      {
-        src: 'https://via.placeholder.com/150',
-        alt: 'Cloudmark'
-      },
-      {
-        src: 'https://via.placeholder.com/150',
-        alt: 'Cloudflare'
-      },
-      {
-        src: 'https://via.placeholder.com/150',
-        alt: 'Johns Hopkins'
-      }
-      ]"
-      title=""
-    >
-    </image-row>
-
-    <image-row
-     :images="[
-      {
-        src: 'https://via.placeholder.com/150',
-        alt: 'BrightContext Corporation',
-        link: 'https://www.crunchbase.com/organization/brightcontext'
-      },
-      {
-        src: 'https://via.placeholder.com/150',
-        alt: 'WealthEngine'
-      },
-      {
-        src: 'https://via.placeholder.com/150',
-        alt: 'Cloudmark'
-      },
-      {
-        src: 'https://via.placeholder.com/150',
-        alt: 'Cloudflare'
-      },
-      {
-        src: 'https://via.placeholder.com/150',
-        alt: 'Johns Hopkins'
-      }
-      ]"
-      title=""
-    >
-    </image-row>
-
+    <nav-links></nav-links>
+    <exhibit prefix="software" :slug="slug" :posts="posts"></exhibit>
   </b-col>
 </template>
 
+
 <script>
+// import TestHtml from 'html-loader!./test.html'
+import CanyonRunner from 'html-loader!./software/articles/html5-canyonrunner.html'
+
+const writings = [{
+  title: 'A complete HTML5 game built with Phaser.js: CanyonRunner',
+  date: '01 May 2017',
+  slug: 'html5-desktop-and-mobile-game-canyonrunner',
+  description: 'Deep dive into my open sourced HTML5 game',
+  body: CanyonRunner,
+  image: '/static/assets/img/canyonrunner-blog.png'
+}]
 
 export default {
-  name: 'software'
+  props: ['slug'],
+  data () {
+    return {
+      posts: writings
+    }
+  },
+  name: 'software-index'
 }
 </script>
 
 <style scoped>
-.intro {
-  height: 400px;
+.post-title {
+  color: #00bf8f;
 }
+
+.post-date {
+  color: grey;
+}
+
+.post-view_content p {
+  color: #green;
+}
+
 </style>

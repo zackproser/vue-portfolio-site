@@ -1,7 +1,7 @@
 <template>
 <b-container class="my-5">
     <b-row>
-      <h4>{{ title }}</h4>
+      <h3 class="my-4">{{ title }}</h3>
     </b-row>
     <b-row>
       <b-col v-for="image in images" :key="image.src">
@@ -29,5 +29,8 @@ export default {
  }
  img {
   height: 14vw;
+ }
+h1, h2, h3, h4 {
+  color: #00bf8f;
  }
 </style>

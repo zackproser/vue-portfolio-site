@@ -7,9 +7,7 @@
       <b-row class="intro">
         <b-col sm="12" md="6" lg="6">
           <p class="lead">
-            <strong><em>This site is under active development</em></strong>
-
-            <strong>I am a full-stack Software Engineer</strong>. I work on the API team at <a href="https://cloudflare.com" target="_blank">Cloudflare</a>, where I design and build systems and help keep our services running smoothly.
+            I am a full-stack Software Engineer. I work on the API team at <a href="https://cloudflare.com" target="_blank">Cloudflare</a>, where I design and build systems and help keep our services running smoothly.
           </p>
           <p class="lead">
             Previously, I did full-stack development for internet security firm Cloudmark (now Proofpoint), as well as bespoke systems development for Johns Hopkins.
@@ -18,7 +16,7 @@
             I got my start in tech as employee #9 of BrightContext corporation, a stream-processing platform that was acquired by WealthEngine.
           </p>
           <p class="lead">
-            <strong>I'm also an artist.</strong> I share my paintings, drawings, open-source software and writings on this site.
+            <a href="https://instagram.com/zackproser">I'm also an artist.</a> I share my paintings, drawings, open-source software and writings on this site.
           </p>
         </b-col>
         <b-col xs="12" sm="12" md="6" lg="6">
@@ -79,34 +77,6 @@
     >
     </image-row>
 
-    <image-row
-     :images="[
-      {
-        src: 'https://via.placeholder.com/150',
-        alt: 'BrightContext Corporation',
-        link: 'https://www.crunchbase.com/organization/brightcontext'
-      },
-      {
-        src: 'https://via.placeholder.com/150',
-        alt: 'WealthEngine'
-      },
-      {
-        src: 'https://via.placeholder.com/150',
-        alt: 'Cloudmark'
-      },
-      {
-        src: 'https://via.placeholder.com/150',
-        alt: 'Cloudflare'
-      },
-      {
-        src: 'https://via.placeholder.com/150',
-        alt: 'Johns Hopkins'
-      }
-      ]"
-      title="Highlighted projects"
-    >
-    </image-row>
-
   </b-col>
 </template>
 
@@ -120,5 +90,8 @@ export default {
 <style scoped>
 .intro {
   min-height: 450px;
+}
+a {
+  font-weight: 800;
 }
 </style>
