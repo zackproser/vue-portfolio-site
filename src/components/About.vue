@@ -16,7 +16,7 @@
             I got my start in tech as employee #9 of BrightContext corporation, a stream-processing platform that was acquired by WealthEngine.
           </p>
           <p class="lead">
-            <a href="https://instagram.com/zackproser">I'm also an artist.</a> I share my paintings, drawings, open-source software and writings on this site.
+            <a href="https://instagram.com/zackproser">I'm also an artist,</a> working in acrylic paint, markers, pen and pencil.
           </p>
         </b-col>
         <b-col xs="12" sm="12" md="6" lg="6">
