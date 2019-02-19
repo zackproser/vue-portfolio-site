@@ -14,6 +14,8 @@ Vue.component('imageRow', require('./components/ImageRow.vue').default)
 Vue.component('resumeBody', require('./components/Resume.vue').default)
 Vue.component('exhibit', require('./components/Exhibit.vue').default)
 
+require('./assets/custom.css')
+
 Vue.use(BootstrapVue)
 Vue.config.productionTip = false
 
