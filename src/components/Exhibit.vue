@@ -61,7 +61,6 @@ export default {
     }
   },
   mounted () {
-    console.log(`mounted ${this.slug}`)
     this.selected = false
     if (this.slug) {
       this.changePost(this.slug)
@@ -71,7 +70,7 @@ export default {
   },
   watch: {
     '$route' (to, from) {
-      // Watch for and handle the case where someone clicks back to blog index via nav
+      // Watch for and handle the case where someone clicks back to exhibit index via nav
       if (!to.params.slug) {
         this.selected = false
       }
@@ -79,11 +78,9 @@ export default {
   },
   methods: {
     getPost (slug) {
-      console.log(`getPost ${slug}`)
       return (this.posts.filter(post => post.slug === slug).pop() || this.posts.shift())
     },
     changePost (slug) {
-      console.log(`changePost ${slug}`)
       this.currentPost = this.getPost(slug)
       this.$router.push({name: this.prefix, params: { slug }})
       this.selected = true

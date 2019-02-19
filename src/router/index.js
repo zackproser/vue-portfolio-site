@@ -30,7 +30,8 @@ export default new Router({
     {
       path: '/software/:slug?',
       name: 'software',
-      component: Software
+      component: Software,
+      props: true
     },
     {
       path: '/blog/:slug?',

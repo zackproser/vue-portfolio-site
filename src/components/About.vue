@@ -54,6 +54,7 @@
       }
       ]"
       title="Companies I've worked with"
+      :tiled="false"
     >
 
     </image-row>
@@ -64,16 +65,47 @@
         src: '/static/assets/img/writings/cf-terraforming.png',
         alt: 'Cf-terraforming utility',
         link: 'https://blog.cloudflare.com/introducing-cf-terraform/',
-        title: 'Cloudflare Blog: Introducing cf-terraform'
+        title: 'Cloudflare Blog: Introducing cf-terraform',
+        description: 'We open sourced a utility that downloads your Cloudflare resources into valid Terraform configuration files',
+        date: 'February 15 2019',
+        relative: false
       },
       {
         src: '/static/assets/img/writings/dogfooding-workers.png',
         alt: 'Dogfooding Cloudflare workers',
         link: 'https://blog.cloudflare.com/dogfooding-edge-workers/',
-        title: 'Cloudflare Blog: Dogfooding Workers'
+        title: 'Cloudflare Blog: Dogfooding Workers',
+        description: 'We ate our own dogfood by writing a worker and deploying it in front of api.cloudflare.com',
+        date: 'May 4 2018',
+        relative: 'false'
       }
       ]"
       title="Recent writings"
+      :tiled="true"
+    >
+    </image-row>
+
+    <image-row
+     :images="[
+      {
+        src: '/static/assets/img/optimizer-blog.png',
+        alt: 'Article Optimizer',
+        link: '/software/free-seo-article-optimizer',
+        title: 'Article Optimizer App',
+        description: 'A powerful full stack application that leverages natural language processing to suggest content improvements',
+        relative: true
+      },
+      {
+        src: '/static/assets/img/canyonrunner-blog.png',
+        alt: 'CanyonRunner HTML5 Game',
+        link: '/software/html5-desktop-and-mobile-game-canyonrunner',
+        title: 'CanyonRunner HTML5 Game',
+        description: 'A complete HTML5 game complete with multiple subsystems: saves, multiple levels, aerial combat, multiple ending',
+        relative: true,
+      }
+      ]"
+      title="Highlighted projects"
+      :tiled="true"
     >
     </image-row>
 
