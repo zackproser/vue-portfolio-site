@@ -2,7 +2,7 @@
   <div id="app">
     <b-container class="main-wrapper clearfix" fluid>
       <b-row class="outer-row">
-        <b-col xs="12" sm="4" md="3" lg="2" class="sidebar">
+        <b-col xs="12" sm="12" md="12" lg="2" class="sidebar">
             <b-row class="h-100">
               <div class="col-sm-12 my-auto nameplate text-center">
                 <p class="lead">Zack Proser</p>
@@ -62,10 +62,6 @@ p a {
 }
 .sidebar-content {
   margin-top: 40%;
-}
-
-.nameplate {
-  top: -200px;
 }
 
 .nameplate p {

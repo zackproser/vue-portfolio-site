@@ -73,7 +73,11 @@ export default {
   color: grey;
 }
 
-.post-view_content p {
+.post-view__content {
+  max-width: 800px;
+}
+
+.post-view__content p {
   color: #green;
 }
 

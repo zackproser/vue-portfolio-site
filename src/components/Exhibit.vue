@@ -3,7 +3,7 @@
     <div :class="['logo', selected ? 'logo--absolute': '', ready ? 'logo--active' : '']" @click="closePost()">
     </div>
     <div :class="['post-view', selected ? 'post-view--active' : '' , ready ? 'post-view--ready' : '' ]">
-        <div class="post-view__container" sm="6" md="7" lg="8" v-if="selected">
+        <div class="post-view__container" xs="2" sm="6" md="7" lg="10" v-if="selected">
             <div class="post-controls">
                 <div class="post-control post-control--close" @click="closePost()"><i class="ion-ios-close-empty"></i></div>
                 <div class="post-control" id="next-post" @click="nextPost()"><i class="ion-ios-arrow-right"></i></div>
@@ -11,7 +11,7 @@
             </div>
             <h2 class="post-title">{{currentPost.title}}</h2>
             <h4 class="post-date">{{currentPost.date}}</h4>
-            <div class="post-view__content" v-html="parsedPostBody"></div>
+            <div xs="12" sm="12" md="6" lg="6" xl="6" class="post-view__content" v-html="parsedPostBody"></div>
         </div>
     </div>
     <div xs="12" sm="12" md="2" lg="2" :class="['post-list', selected ? 'post-list--hide' : '']">
@@ -135,6 +135,9 @@ export default {
 }
 .post-date {
   color: grey;
+}
+.post-view__content {
+  max-width: 800px;
 }
 .post-view__content p {
   font-size: 20px;
