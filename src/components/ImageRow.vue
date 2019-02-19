@@ -15,9 +15,9 @@
               :key="image.src"
               img-top
             >
-                <b-card-text>
+                <p class="card-text">
                   {{ image.description }}
-                </b-card-text>
+                </p>
 
                 <br>
                 <br>

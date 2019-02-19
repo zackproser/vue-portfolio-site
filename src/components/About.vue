@@ -119,7 +119,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .intro {
   min-height: 450px;
 }

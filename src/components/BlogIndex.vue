@@ -77,4 +77,7 @@ export default {
   color: #green;
 }
 
+.nameplate {
+  top: -200px !important;
+}
 </style>

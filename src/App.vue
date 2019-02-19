@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <b-container class="main-wrapper clearfix" fluid>
-      <b-row>
+      <b-row class="outer-row">
         <b-col xs="12" sm="4" md="3" lg="2" class="sidebar">
             <b-row class="h-100">
               <div class="col-sm-12 my-auto nameplate text-center">
@@ -63,6 +63,11 @@ p a {
 .sidebar-content {
   margin-top: 40%;
 }
+
+.nameplate {
+  top: -200px;
+}
+
 .nameplate p {
   font-size: 3em;
   color: #fff;
@@ -94,4 +99,7 @@ p.professional-title {
   font-size: 26px;
 }
 
+.outer-row {
+  min-height: 1500px !Important;
+}
 </style>

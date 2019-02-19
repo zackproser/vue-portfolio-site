@@ -39,8 +39,9 @@ export default {
   name: 'software-index'
 }
 </script>
-
+=
 <style scoped>
+
 .post-title {
   color: #00bf8f;
 }
@@ -52,5 +53,7 @@ export default {
 .post-view_content p {
   color: #green;
 }
-
+.nameplate {
+  top: -200px !important;
+}
 </style>
