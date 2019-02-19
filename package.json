@@ -85,7 +85,7 @@
     "url-loader": "^0.5.8",
     "vmark": "^1.0.2",
     "vmark-loader": "^1.0.0",
-    "vue-loader": "^14.2.2",
+    "vue-loader": "^14.2.4",
     "vue-markdown-loader": "^2.4.1",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.4.2",
