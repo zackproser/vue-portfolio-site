@@ -16,7 +16,7 @@
     </div>
     <div xs="12" sm="12" md="2" lg="2" :class="['post-list', selected ? 'post-list--hide' : '']">
         <b-card-group v-for="i in Math.ceil(posts.length / 3)" :key="i">
-            <b-card :title="post.title" img-src="/static/assets/img/wikka.png" class="post my-3" v-for="post in posts.slice((i - 1) * 3, i * 3)" :key="post.slug" @click="changePost(post.slug)" img-top>
+            <b-card :title="post.title" :img-src="post.image" class="post my-3" v-for="post in posts.slice((i - 1) * 3, i * 3)" :key="post.slug" @click="changePost(post.slug)" img-top>
                 <p class="card-text">{{ post.description }}</p>
                 <div slot="footer">
                     <small>{{post.date}}</small>
@@ -33,6 +33,7 @@ let marked = require('marked')
 
 export default {
   props: {
+    prefix: String,
     slug: String,
     posts: Array
   },
@@ -84,7 +85,7 @@ export default {
     changePost (slug) {
       console.log(`changePost ${slug}`)
       this.currentPost = this.getPost(slug)
-      this.$router.push({name: 'blog', params: { slug }})
+      this.$router.push({name: this.prefix, params: { slug }})
       this.selected = true
       this.ready = true
     },

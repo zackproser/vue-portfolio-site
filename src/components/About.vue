@@ -63,25 +63,16 @@
     <image-row
      :images="[
       {
-        src: 'https://via.placeholder.com/150',
-        alt: 'BrightContext Corporation',
-        link: 'https://www.crunchbase.com/organization/brightcontext'
+        src: '/static/assets/img/writings/cf-terraforming.png',
+        alt: 'Cf-terraforming utility',
+        link: 'https://blog.cloudflare.com/introducing-cf-terraform/',
+        title: 'Cloudflare Blog: Introducing cf-terraform'
       },
       {
-        src: 'https://via.placeholder.com/150',
-        alt: 'WealthEngine'
-      },
-      {
-        src: 'https://via.placeholder.com/150',
-        alt: 'Cloudmark'
-      },
-      {
-        src: 'https://via.placeholder.com/150',
-        alt: 'Cloudflare'
-      },
-      {
-        src: 'https://via.placeholder.com/150',
-        alt: 'Johns Hopkins'
+        src: '/static/assets/img/writings/dogfooding-workers.png',
+        alt: 'Dogfooding Cloudflare workers',
+        link: 'https://blog.cloudflare.com/dogfooding-edge-workers/',
+        title: 'Cloudflare Blog: Dogfooding Workers'
       }
       ]"
       title="Recent writings"

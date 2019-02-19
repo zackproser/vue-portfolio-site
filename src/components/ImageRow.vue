@@ -5,6 +5,7 @@
     </b-row>
     <b-row>
       <b-col v-for="image in images" :key="image.src">
+        <span v-if="image.title"><strong>{{ image.title }}</strong></span>
         <a target="_blank" :href="image.link">
           <b-img :src="image.src" :alt="image.alt"  fluid />
         </a>
@@ -27,7 +28,6 @@ export default {
   height: 200px;
  }
  img {
-  width: 100%;
   height: 14vw;
  }
 </style>

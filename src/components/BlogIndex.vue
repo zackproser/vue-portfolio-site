@@ -1,7 +1,7 @@
 <template>
   <b-col>
     <nav-links></nav-links>
-    <exhibit :slug="slug" :posts="posts"></exhibit>
+    <exhibit prefix="blog" :slug="slug" :posts="posts"></exhibit>
   </b-col>
 </template>
 <script>
@@ -18,7 +18,7 @@ const writings = [{
   slug: 'dockerized-express-service',
   description: 'How to create test-driven web services that won\'t build when broken',
   body: DockerizedExpress,
-  image: ''
+  image: '/static/assets/img/wakka.png'
 },
 {
   title: 'Stretching your infrastructure with Forge and Cloudflare',
@@ -26,7 +26,7 @@ const writings = [{
   date: '04 April 2017',
   description: 'How I once ran 7 node.js and PHP apps, serving over 300,000 requests per month, for $35 with Laravel Forge, DigitalOcean and Cloudflare',
   body: ModernDeployment,
-  image: 'https://image.ibb.co/dwDXGQ/2.jpg'
+  image: '/static/assets/img/wokka.png'
 },
 {
   title: 'Docker command-line tips and tricks',
@@ -34,7 +34,7 @@ const writings = [{
   slug: 'docker-command-line-tips-and-tricks',
   description: 'Handy tips for working with Docker',
   body: DockerTips,
-  image: ''
+  image: '/static/assets/img/wikka.png'
 },
 {
   title: 'I open sourced my content analysis tool',
@@ -42,7 +42,7 @@ const writings = [{
   slug: 'i-open-sourced-my-content-analysis-tool',
   description: 'Article Optimizer is a full stack PHP app that leverages natural language processing to help you optimize your web content',
   body: ArticleOptimizer,
-  image: ''
+  image: '/static/assets/img/optimizer-blog.png'
 },
 {
   title: 'I open sourced my Phaser HTML5 game',
@@ -50,7 +50,7 @@ const writings = [{
   slug: 'i-open-sourced-my-phaser-html-5-game',
   description: 'Learn how to build a complete game including common subsystems',
   body: CanyonRunner,
-  image: ''
+  image: '/static/assets/img/canyonrunner-blog.png'
 }]
 
 export default {
