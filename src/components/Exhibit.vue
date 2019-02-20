@@ -1,30 +1,29 @@
 <template>
-<b-row>
-    <div :class="['logo', selected ? 'logo--absolute': '', ready ? 'logo--active' : '']" @click="closePost()">
-    </div>
-    <div :class="['post-view', selected ? 'post-view--active' : '' , ready ? 'post-view--ready' : '' ]">
-        <div class="post-view__container" xs="2" sm="6" md="7" lg="10" v-if="selected">
-            <div class="post-controls">
-                <div class="post-control post-control--close" @click="closePost()"><i class="ion-ios-close-empty"></i></div>
-                <div class="post-control" id="next-post" @click="nextPost()"><i class="ion-ios-arrow-right"></i></div>
-                <div class="post-control" id="prev-post" @click="prevPost()"><i class="ion-ios-arrow-left"></i></div>
-            </div>
-            <h2 class="post-title">{{currentPost.title}}</h2>
-            <h4 class="post-date">{{currentPost.date}}</h4>
-            <div xs="12" sm="12" md="6" lg="6" xl="6" class="post-view__content" v-html="parsedPostBody"></div>
-        </div>
-    </div>
-    <div xs="12" sm="12" md="2" lg="2" :class="['post-list', selected ? 'post-list--hide' : '']">
-        <b-card-group v-for="i in Math.ceil(posts.length / 3)" :key="i">
-            <b-card :title="post.title" :img-src="post.image" class="post my-3" v-for="post in posts.slice((i - 1) * 3, i * 3)" :key="post.slug" @click="changePost(post.slug)" img-top>
-                <p class="card-text">{{ post.description }}</p>
-                <div slot="footer">
-                    <small>{{post.date}}</small>
-                </div>
-            </b-card>
-        </b-card-group>
-    </div>
-</b-row>
+<b-container>
+  <b-row>
+    <b-col>
+      <div :class="['logo', selected ? 'logo--absolute': '', ready ? 'logo--active' : '']" @click="closePost()">
+      </div>
+      <div :class="['post-view', selected ? 'post-view--active' : '' , ready ? 'post-view--ready' : '' ]">
+          <div class="post-view__container" xs="12" sm="12" md="10" lg="10" xl="10" v-if="selected">
+              <h2 class="post-title">{{currentPost.title}}</h2>
+              <h4 class="post-date">{{currentPost.date}}</h4>
+              <div xs="12" sm="12" md="10" lg="10" xl="10" class="post-view__content" v-html="parsedPostBody"></div>
+          </div>
+      </div>
+      <div xs="12" sm="12" md="2" lg="2" :class="['post-list', selected ? 'post-list--hide' : '']">
+          <b-card-group v-for="i in Math.ceil(posts.length / 3)" :key="i">
+              <b-card :title="post.title" :img-src="post.image" class="post my-3" v-for="post in posts.slice((i - 1) * 3, i * 3)" :key="post.slug" @click="changePost(post.slug)" img-top>
+                  <p class="card-text">{{ post.description }}</p>
+                  <div slot="footer">
+                      <small>{{post.date}}</small>
+                  </div>
+              </b-card>
+          </b-card-group>
+      </div>
+    </b-col>
+  </b-row>
+</b-container>
 </template>
 
 <script>
@@ -130,19 +129,4 @@ export default {
 </script>
 
 <style>
-.post-title {
-  color: #00bf8f;
-}
-.post-date {
-  color: grey;
-}
-.post-view__content {
-  max-width: 800px;
-}
-.post-view__content p {
-  font-size: 20px;
-}
-.post-view__content img {
-  max-width: 100%;
-}
 </style>

@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <b-container class="main-wrapper clearfix" fluid>
-      <b-row class="outer-row">
-        <b-col xs="12" sm="12" md="12" lg="2" class="sidebar">
+    <b-container fluid>
+      <b-row>
+        <b-col xs="12" sm="12" md="2" lg="2" xl="2" class="sidebar">
             <b-row class="h-100">
-              <div class="col-sm-12 my-auto nameplate text-center">
+              <div class="my-auto mx-auto nameplate text-center">
                 <p class="lead">Zack Proser</p>
                 <p class="professional-title">Software Engineer</p>
                 <div id="bubbles">
@@ -29,9 +29,11 @@
               </div>
             </b-row>
         </b-col>
+        <b-col xs="12" sm="12" md="10" lg="10" xl="10">
           <transition name="fade">
-            <router-view class="content-wrapper"></router-view>
+            <router-view></router-view>
           </transition>
+        </b-col>
       </b-row>
     </b-container>
   </div>
@@ -49,6 +51,10 @@ export default {
 
 <style>
 
+body, html {
+  height: 100%;
+}
+
 p a {
   color: #00bf8f;
 }
@@ -57,17 +63,38 @@ p a {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 .sidebar {
   background: #00bf8f;
-}
-.sidebar-content {
-  margin-top: 40%;
 }
 
 .nameplate p {
   font-size: 3em;
   color: #fff;
 }
+
+.post-title {
+  color: #00bf8f;
+}
+
+.post-date {
+  color: grey;
+}
+
+.post-view__content {
+  max-width: 800px;
+}
+.post-view__content p {
+  font-size: 20px;
+}
+.post-view__content img {
+  max-width: 100%;
+}
+
+.post-view_content p {
+  color: #green;
+}
+
 .fade-enter-active, .fade-leave-active {
   transition-property: opacity;
   transition-duration: .45s;
@@ -81,21 +108,7 @@ p a {
   opacity: 0
 }
 
-img.mugshot {
-  outline: 1px solid white;
-  border-radius: 50%;
-}
-
 p.professional-title {
   font-size: 26px;
-}
-
-.outer-row {
-  min-height: 1500px !Important;
-}
-
-.content-wrapper {
-  margin: 35px;
-  max-width: 80%;
 }
 </style>

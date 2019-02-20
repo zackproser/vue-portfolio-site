@@ -1,11 +1,11 @@
 <template>
-  <b-col>
+  <div>
     <nav-links></nav-links>
     <exhibit prefix="blog" :slug="slug" :posts="posts"></exhibit>
-  </b-col>
+  </div>
 </template>
+
 <script>
-// import TestHtml from 'html-loader!./test.html'
 import ModernDeployment from 'html-loader!./blog/articles/modern-deployment.html'
 import DockerizedExpress from 'html-loader!./blog/articles/dockerized-express-js.html'
 import DockerTips from 'html-loader!./blog/articles/docker-tips-and-tricks.html'
@@ -60,32 +60,10 @@ export default {
       posts: writings
     }
   },
-  name: 'blog-index'
+  name: 'blog'
 }
 
 </script>
-<style scoped>
-.post-title {
-  color: #00bf8f;
-}
 
-.post-date {
-  color: grey;
-}
-
-.post-view__content {
-  max-width: 800px;
-}
-
-.post-view__content p {
-  color: #green;
-}
-
-.nameplate {
-  top: -200px !important;
-}
-
-.content-wrapper {
-  max-width: 75%;
-}
+<style>
 </style>

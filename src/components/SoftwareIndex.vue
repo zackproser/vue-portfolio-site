@@ -1,14 +1,11 @@
 <template>
-  <b-col>
-
+  <div>
     <nav-links></nav-links>
     <exhibit prefix="software" :slug="slug" :posts="posts"></exhibit>
-  </b-col>
+  </div>
 </template>
 
-
 <script>
-// import TestHtml from 'html-loader!./test.html'
 import CanyonRunner from 'html-loader!./software/articles/html5-canyonrunner.html'
 import ArticleOptimizer from 'html-loader!./software/articles/article-optimizer.html'
 
@@ -36,23 +33,12 @@ export default {
       posts: writings
     }
   },
-  name: 'software-index'
+  name: 'software'
 }
 </script>
-=
+
 <style scoped>
 
-.post-title {
-  color: #00bf8f;
-}
-
-.post-date {
-  color: grey;
-}
-
-.post-view_content p {
-  color: #green;
-}
 .nameplate {
   top: -200px !important;
 }
