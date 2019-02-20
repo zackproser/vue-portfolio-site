@@ -8,6 +8,7 @@
 <script>
 import CanyonRunner from 'html-loader!./software/articles/html5-canyonrunner.html'
 import ArticleOptimizer from 'html-loader!./software/articles/article-optimizer.html'
+import PageGobbler from 'html-loader!./software/articles/pagegobbler-mac-app.html'
 
 const writings = [{
   title: 'A complete HTML5 game built with Phaser.js: CanyonRunner',
@@ -24,6 +25,14 @@ const writings = [{
   description: 'A full-stack app leverage natural language processing',
   body: ArticleOptimizer,
   image: '/static/assets/img/optimizer-blog.png'
+},
+{
+  title: 'A native OSX app for extracting data from websites',
+  date: '01 May 2017',
+  slug: 'pagegobber-mac-app',
+  description: 'I built a Mac OSX app and sold it in the App Store',
+  body: PageGobbler,
+  image: '/static/assets/img/gobbler-screens/pagegobbler-overview.png'
 }]
 
 export default {

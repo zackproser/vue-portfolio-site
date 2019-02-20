@@ -55,7 +55,7 @@ body, html {
   height: 100%;
 }
 
-p a {
+p a, li a {
   color: #00bf8f;
 }
 
@@ -84,9 +84,11 @@ p a {
 .post-view__content {
   max-width: 800px;
 }
-.post-view__content p {
+
+.post-view__content p, li {
   font-size: 20px;
 }
+
 .post-view__content img {
   max-width: 100%;
 }
