@@ -11,6 +11,8 @@ import DockerizedExpress from 'html-loader!./blog/articles/dockerized-express-js
 import DockerTips from 'html-loader!./blog/articles/docker-tips-and-tricks.html'
 import ArticleOptimizer from 'html-loader!./blog/articles/open-sourced-article-optimizer.html'
 import CanyonRunner from 'html-loader!./blog/articles/open-source-canyonrunner.html'
+import Goodneighbor from 'html-loader!./blog/articles/goodneighbor.html'
+import Catfacts from 'html-loader!./blog/articles/catfacts.html'
 
 const writings = [{
   title: 'Create a Dockerized Express service that prevents bad builds',
@@ -37,6 +39,13 @@ const writings = [{
   image: '/static/assets/img/wikka.png'
 },
 {
+  title: 'I built a Twitter AI framework that runs accounts of any identity',
+  slug: 'goodneighbor-twitter-ai-platform',
+  description: 'Goodneighbor runs Twitter accounts on any subject 100% autonomously, better than a human can',
+  body: Goodneighbor,
+  image: '/static/assets/img/goodneighbor-screens/goodneighbor-blog.png'
+},
+{
   title: 'I open sourced my content analysis tool',
   date: '01 May 2017',
   slug: 'i-open-sourced-my-content-analysis-tool',
@@ -51,6 +60,14 @@ const writings = [{
   description: 'Learn how to build a complete game including common subsystems',
   body: CanyonRunner,
   image: '/static/assets/img/canyonrunner-blog.png'
+},
+{
+  title: 'I built the cat facts prank into an express.js service with Twilio',
+  date: '01 May 2017',
+  slug: 'catfacts-attack-service',
+  description: 'Prank your friends with the cat facts service from hell',
+  body: Catfacts,
+  image: '/static/assets/img/catfacts-screens/catfacts-blog.png'
 }]
 
 export default {
