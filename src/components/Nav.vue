@@ -3,6 +3,7 @@
       <b-nav class="my-5">
         <b-nav-item><router-link to="/" exact>About</router-link></b-nav-item>
         <b-nav-item><router-link to="/artwork">Artwork</router-link></b-nav-item>
+        <b-nav-item><router-link to="/github">GitHub</router-link></b-nav-item>
         <b-nav-item><router-link to="/resume">Resume</router-link></b-nav-item>
         <b-nav-item><router-link to="/software">Software</router-link></b-nav-item>
         <b-nav-item><router-link to="/blog">Blog</router-link></b-nav-item>
@@ -18,7 +19,7 @@ export default {
 
 <style scoped>
 .nav a {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 800;
     color: black;
 }

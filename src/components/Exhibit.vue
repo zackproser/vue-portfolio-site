@@ -13,11 +13,20 @@
       </div>
       <div xs="12" sm="12" md="2" lg="2" :class="['post-list', selected ? 'post-list--hide' : '']">
           <b-card-group v-for="i in Math.ceil(posts.length / 3)" :key="i">
-              <b-card :title="post.title" :img-src="post.image" class="post my-3" v-for="post in posts.slice((i - 1) * 3, i * 3)" :key="post.slug" @click="changePost(post.slug)" img-top>
-                  <p class="card-text">{{ post.description }}</p>
-                  <div slot="footer">
-                      <small>{{post.date}}</small>
-                  </div>
+              <b-card
+                :title="post.title"
+                :img-src="post.image"
+                class="post my-3"
+                v-for="post in posts.slice((i - 1) * 3, i * 3)"
+                :key="post.slug"
+                @click="changePost(post.slug)"
+                img-height="200"
+                img-top
+              >
+                <p class="card-text">{{ post.description }}</p>
+                <div slot="footer">
+                    <small>{{post.date}}</small>
+                </div>
               </b-card>
           </b-card-group>
       </div>
@@ -127,6 +136,3 @@ export default {
   name: 'exhibit'
 }
 </script>
-
-<style>
-</style>

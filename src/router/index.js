@@ -22,6 +22,12 @@ export default new Router({
       }
     },
     {
+      path: '/github',
+      beforeEnter () {
+        location.href = 'https://github.com/zackproser'
+      }
+    },
+    {
       path: '/resume',
       beforeEnter () {
         location.href = 'https://www.linkedin.com/in/zackproser/'
