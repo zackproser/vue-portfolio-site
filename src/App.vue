@@ -56,7 +56,7 @@ body, html {
 }
 
 p a, li a, h4 {
-  color: #00bf8f;
+  color: #00bf8f !important;
 }
 
 #app {
