@@ -4,7 +4,7 @@
       <b-row>
         <b-col xs="12" sm="12" md="2" lg="2" xl="2" class="sidebar">
             <b-row class="h-100">
-              <div class="my-auto mx-auto nameplate text-center">
+              <div class="mx-auto nameplate text-center">
                 <p class="lead">Zack Proser</p>
                 <p class="professional-title">Software Engineer</p>
                 <div id="bubbles">
@@ -66,6 +66,10 @@ p a, li a, h4 {
 
 .sidebar {
   background: #00bf8f;
+}
+
+.nameplate {
+  margin-top: 90%;
 }
 
 .nameplate p {

@@ -24,7 +24,7 @@ export default {
     color: black;
 }
 .nav a.active {
-  color: #00bf8f;
+  text-decoration: underline;
 }
 </style>
 
