@@ -780,25 +780,25 @@ Let's take a quick look at how level1.js handles the next 3 possible states foll
 
 Here are the functions at the end of level1.js that handle these transitions. While the crux of switching states is calling Phaser's state.start method, you'll usually want to perform certain tear-down or data persistance tasks before making the switch:
 ```
-    handleUserDataGameLoss: function() {
-            //Handle Player Scores and Times
-            this.interval = 0;
-            this.step = this.playerStats.topScore - this.interval;
-            if (this.score > this.step) {
-                this.playerStats.topScore = this.interval + this.score;
-            }
-            this.playerStats.topTime = this.playerStats.topTime + this.survivalTimer.seconds;
+    handleUserDataGameLoss: function () {
+        //Handle Player Scores and Times
+        this.interval = 0;
+        this.step = this.playerStats.topScore - this.interval;
+        if (this.score > this.step) {
+            this.playerStats.topScore = this.interval + this.score;
+        }
+        this.playerStats.topTime = this.playerStats.topTime + this.survivalTimer.seconds;
 
-            localStorage.setItem('Canyon_Runner_9282733_playerStats', JSON.stringify(this.playerStats));
-            //Reset Game After Pause
-            this.resetTimer = this.game.time.create(this.game);
-            this.resetTimer.add(4000, function(){
-                this.explosion.kill();
-                this.game.state.start('MainMenu');
-            }, this);
-            this.resetTimer.start();
-        },
-    handleUserDataLevelComplete: function() {
+        localStorage.setItem('Canyon_Runner_9282733_playerStats', JSON.stringify(this.playerStats));
+        //Reset Game After Pause
+        this.resetTimer = this.game.time.create(this.game);
+        this.resetTimer.add(4000, function () {
+            this.explosion.kill();
+            this.game.state.start('MainMenu');
+        }, this);
+        this.resetTimer.start();
+    },
+    handleUserDataLevelComplete: function () {
         //Handle Player Scores and Times
         this.playerStats.topScore = 50;
         this.playerStats.topTime = this.playerStats.topTime + this.survivalTimer.seconds;
@@ -810,14 +810,15 @@ Here are the functions at the end of level1.js that handle these transitions. Wh
         this.buttonAdvance = this.game.add.button(350, 500, 'sprites', this.nextLevel, this, 'advance-button', 'advance-button', 'advance-button');
         this.buttonAdvance.fixedToCamera = true;
     },
-    nextLevel: function() {
+    nextLevel: function () {
         this.sound.stop('success');
         this.state.start('NavigationBandit');
     },
     quitGame: function (pointer) {
         this.state.start('MainMenu');
     }
-```s
+```
+
 In the case of the player failing or succeeding on the given level, their latest score, their furthest position in the game (as stored in the returnPlayerToState attribute) and their current in-game time are stored via the game's save system before the player is advanced to the next state. See the next section for a complete treatment of a Local Storage based game-save system.
 
 ### Creating a Game Save System
@@ -829,6 +830,7 @@ In the case of CanyonRunner, I store a few key things on the user's system so th
 *   The user's Top Score (represented by the number of spires they've avoided)
 *   The user's current time-in-game represented by the number of seconds they've survived
 *   The name of the game state that the user should be returned to (updated as they progress through the game)
+
 ```
     //////////////////////
     //READ LOCAL STORAGE

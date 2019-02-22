@@ -19,7 +19,7 @@ export default {
 
 <style scoped>
 .nav a {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 800;
     color: black;
 }

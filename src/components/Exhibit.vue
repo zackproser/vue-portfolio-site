@@ -8,7 +8,7 @@
           <div class="post-view__container" xs="12" sm="12" md="10" lg="10" xl="10" v-if="selected">
               <h2 class="post-title">{{currentPost.title}}</h2>
               <h4 class="post-date">{{currentPost.date}}</h4>
-              <div xs="12" sm="12" md="10" lg="10" xl="10" class="post-view__content" v-html="parsedPostBody"></div>
+              <div xs="12" sm="12" md="10" lg="10" xl="10" class="post-view__content" v-highlight v-html="parsedPostBody"></div>
           </div>
       </div>
       <div xs="12" sm="12" md="2" lg="2" :class="['post-list', selected ? 'post-list--hide' : '']">
@@ -93,6 +93,7 @@ export default {
       this.$router.push({name: this.prefix, params: { slug }})
       this.selected = true
       this.ready = true
+      window.scrollTo(0, 0)
     },
     closePost () {
       if (this.lastSelectedPost !== null) {

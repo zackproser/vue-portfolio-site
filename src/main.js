@@ -6,6 +6,8 @@ import App from './App'
 import router from './router'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import 'highlight.js/styles/monokai-sublime.css'
+import Highlight from 'vue-markdown-highlight'
 
 Vue.component('navLinks', require('./components/Nav.vue').default)
 Vue.component('testimonialsCarousel', require('./components/Testimonials.vue').default)
@@ -17,6 +19,7 @@ Vue.component('exhibit', require('./components/Exhibit.vue').default)
 require('./assets/custom.css')
 
 Vue.use(BootstrapVue)
+Vue.use(Highlight)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
