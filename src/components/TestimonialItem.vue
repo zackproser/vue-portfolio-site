@@ -49,7 +49,7 @@ export default {
 
 .testimonial-author {
   display: inline-block;
-  font-size: 15px;
+  font-size: 18px;
   font-family: Oswald, Helvetica, sans-serif;
   color: #222;
   margin: 0;
@@ -108,7 +108,8 @@ export default {
 
 .testimonial-firm {
   color: #000;
-  font-size: 10px;
+  font-size: 14px;
+  font-weight: 800;
   line-height: 1.5em;
   margin: 0;
   text-transform: uppercase;

@@ -40,6 +40,16 @@
       >
       </testimonial-item>
 
+      <testimonial-item
+        name="Anthony Davanzo"
+        title="Technical Product Marketing Manager at HashiCorp"
+        quote="Zack is exactly the type of engineer you want on your team. He's smart, collaborative, and tremendously effective. Zack and I worked together building tools and websites to drive revenue and customer success. When challenging ideas were presented, Zack would jump at the opportunity to learn without any hint of hesitation to take on difficulty.
+
+        Personally, he's kind, willing to help, and keeps a good sense of humor."
+        imgSrc="/static/assets/img/testimonials/anthony-davanzo.jpg"
+      >
+      </testimonial-item>
+
     </b-carousel>
 </template>
 
