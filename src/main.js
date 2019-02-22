@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'highlight.js/styles/monokai-sublime.css'
 import Highlight from 'vue-markdown-highlight'
+import VueAnalytics from 'vue-analytics'
 
 Vue.component('navLinks', require('./components/Nav.vue').default)
 Vue.component('testimonialsCarousel', require('./components/Testimonials.vue').default)
@@ -21,6 +22,11 @@ require('./assets/custom.css')
 Vue.use(BootstrapVue)
 Vue.use(Highlight)
 Vue.config.productionTip = false
+
+Vue.use(VueAnalytics, {
+  id: 'UA-13188644-29',
+  router
+})
 
 /* eslint-disable no-new */
 new Vue({
