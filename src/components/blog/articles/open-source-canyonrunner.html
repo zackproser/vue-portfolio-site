@@ -87,7 +87,7 @@ You can [view the full project on Github here](https://github.com/zackproser/Can
 
 Let's take a look at the project's file tree, then consider the general purpose of each directory in turn:
 
-```
+```bash
     .
     ├── Gruntfile.js
     ├── assets
@@ -260,7 +260,7 @@ Grunt can be painful to set up and configure, and often times it's overkill for 
 
 **compiler.jar:** This is the [Google Closure Compiler](https://developers.google.com/closure/compiler/), which is a tool that makes JavaScript download and run faster. After concatenating all my custom JavaScript into a single file, I run it through the Closure Compiler so that the final output .js file that is served up by the game is as lean and mean as possible. The compile command within the exec task uses the compiler.jar to generate the optimized CanyonRunner.min.js, save it to the correct build directory, and echo a string confirming the task completely successfully:
 
-```
+```javascript
     module.exports = function(grunt) {
 
       // Project configuration.
@@ -327,7 +327,9 @@ Note that the assets are also moved by Grunt into their correct destinations dur
 
 The reason we soldier through the initial tedium of configuring Grunt is that once we have everything set up, we can literally build a distribution-ready copy of our game in a single command:
 
-    $ grunt
+```bash
+$ grunt
+```
 
 If you've cloned [the CanyonRunner repo](https://github.com/zackproser/CanyonRunner) and are following along, you can cd into the project root and type grunt in your terminal to see what I'm talking about. Grunt will execute the tasks configured in your Gruntfile to concatenate all the javascript files, run them through the Google Closure Compiler, copy all the assets correctly and put everything where it belongs: into a single new directory called CanyonRunner-distribution which will appear in the project root.
 
@@ -373,13 +375,15 @@ You could set up a traditional web stack with apache, or use something that hand
 
 [Follow these instructions to install Node.js on your machine](https://nodejs.org/download/). Once that's done, you can run the server.js file in the project root by typing:
 
-    $ server.js
+```bash
+$ server.js
+```
 
 Now you can play and test your Phaser game by typing localhost:8080 into your browser.
 
 Let's take a look at what this simple utility script looks like:
 
-```
+```javascript
     var
         express = require('express'),
         app = express(),
@@ -402,7 +406,9 @@ Let's take a look at what this simple utility script looks like:
 
 **Notice we're requiring the [Express](http://expressjs.com/) module** to abstract away serving static assets. This means you'll need to install express library locally to your project in order for server.js to work. If you don't already have express installed globally on your system, type:
 
-    $ sudo npm i
+```bash
+$ sudo npm i
+```
 
 This command will pull down all required dependencies from npm, node's package management system.
 
@@ -416,7 +422,7 @@ Let's examine CanyonRunner's preloader state. It has a few important setup tasks
 
 There's a very handy Phaser convenience feature known as a Preload Sprite that I'm taking advantage of here to render the loading bar that says "loading" and expands from 0 to 100% as the splashscreen itself is being prepared. First, you set up the sprite that will be used as the preloadBar. Then you can call the method setPreloadBar and pass in the sprite - Phaser handles all the internal timing and display logic for us.
 
-```
+```javascript
     CanyonRunner.Preloader = function (game) {
 
         this.ready = false;
@@ -470,7 +476,7 @@ There's a very handy Phaser convenience feature known as a Preload Sprite that I
 #### Optimizing Asset Delivery with Audiosprites
 
 Another important task that falls to the preloader is to determine which type of audiosprite should be loaded. An audiosprite is a single file that contains all the sound effects and songs required by the game mashed together, to save space and bandwidth during asset delivery. Tools that create audiosprites also export a map file, usually in json or xml, that explicitly states the time slices of the audiosprite wherein each individual sound and song starts and ends. Let's take a look:
-```
+```javascript
     {
        "resources":[
           "audio.ogg",
@@ -779,7 +785,8 @@ Let's take a quick look at how level1.js handles the next 3 possible states foll
 *   The user quits - and should be passed directly to the main menu
 
 Here are the functions at the end of level1.js that handle these transitions. While the crux of switching states is calling Phaser's state.start method, you'll usually want to perform certain tear-down or data persistance tasks before making the switch:
-```
+
+```javascript
     handleUserDataGameLoss: function () {
         //Handle Player Scores and Times
         this.interval = 0;
@@ -831,7 +838,7 @@ In the case of CanyonRunner, I store a few key things on the user's system so th
 *   The user's current time-in-game represented by the number of seconds they've survived
 *   The name of the game state that the user should be returned to (updated as they progress through the game)
 
-```
+```javascript
     //////////////////////
     //READ LOCAL STORAGE
     //////////////////////
@@ -857,7 +864,8 @@ However, should you happen to hit the same URL with your smartphone, you'll be g
 I implemented this feature because I wanted one single instance of the CanyonRunner game to work for all players regardless of what device they were using to play. As the game developer, this also makes my life easier, because once I have the logic and assets in place to handle and serve the two different versions of the game, I don't have to worry about supporting and keeping on parity two actually separate codebases.
 
 The two main pieces to this feature are the game logic that checks for whether the player is using a desktop or mobile device, and the assets and functions that work together to render the mobile touchpad on screen and bind its buttons to the correct player actions. Let's take a look:
-```
+
+```javascript
     CanyonRunner.Level1.prototype = {
 
             create: function() {
@@ -958,7 +966,8 @@ At this point, actually showing the player the correct ending is simply a matter
 #### Creating the Ending-Determining Game Logic
 
 Let's take a look at how I implemented this in CanyonRunner. Regardless of which ending the player will ultimately unlock, all players will see this interstitial scene after completing the 3rd level. It's the scene that shows the CanyonRunner obtaining a lock on their home beacon and descending to land at home. This makes it a great place to execute the logic that determines which ending to give the player, since this is something that can be done in the background while the player is watching the actual scene on screen. You can see where I'm determining and starting the correct ending within the rocketLanding function:
-```
+
+```javascript
     CanyonRunner.EmotionalFulcrum = function(game) {
 
         this.angelicVoices = null;
@@ -1135,7 +1144,8 @@ Let's take a look at how I implemented this in CanyonRunner. Regardless of which
 While implementing pause and mute buttons may seem like a small and unimportant task for certain games, the importance of doing exactly this cannot be overstated. It is massively annoying as a player to load up a game while trying to kill some time in a business meeting or to steal a few moments of succor from a family dinner or spousal argument only to have your smartphone erupt in obnoxious, poorly dubbed dubstep that you scramble to mute - only to find there is no mute button. This is exactly the kind of oversight that will drive your players away for good.
 
 Luckily for us, Phaser makes it simple to implement Pause and Mute buttons - so let's go ahead and do that:
-```
+
+```javascript
     /////////////////////////////
     //CREATE SOUND TOGGLE BUTTON
     /////////////////////////////

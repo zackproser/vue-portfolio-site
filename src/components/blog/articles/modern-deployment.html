@@ -38,20 +38,20 @@ You can sign up for Laravel Forge [here.](https://forge.laravel.com/auth/registe
 You can give Forge an ssh key, which it will automatically install on every server it provisions for you.
 
 Let’s first create a new ssh key for this purpose - be sure to update this command with your actual email address:
-
-    $ ssh-keygen -t rsa -b 4096 -C “your-email@example.com"
-
+```bash
+$ ssh-keygen -t rsa -b 4096 -C “your-email@example.com"
+```
 I like to name my key after its purpose - but you can name it whatever you want:
-
-    Enter a file in which to save the key (/Users/you/.ssh/id_rsa): laravel-forge
-
+```bash
+Enter a file in which to save the key (/Users/you/.ssh/id_rsa): laravel-forge
+```
 If you’re on a mac you can easily copy the contents of your public key in order to add it to Forge via the UI:
-
-    $ cat ~/.ssh/laravel-forge.pub | pbcopy
-
+```bash
+$ cat ~/.ssh/laravel-forge.pub | pbcopy
+```
 Now navigate to My Account (The drop down menu at top right in the Forge UI) -> SSH Keys and you can save your key to your account:
 
-![](/static/assets/img/do-laravel-cloudflare-screens/add-key.png)
+![Laravel forge add ssh key](/static/assets/img/do-laravel-cloudflare-screens/add-key.png)
 
 ## Create your first droplet
 
@@ -59,7 +59,7 @@ Laravel Forge integrates with DigitalOcean out of the box, and uses DigitalOcean
 
 The $10/mo droplet is beefy enough to host a handful of smaller apps or websites and it has the following specs:
 
-![](/static/assets/img/do-laravel-cloudflare-screens/create-droplet.png)
+![DigitalOcean select droplet](/static/assets/img/do-laravel-cloudflare-screens/create-droplet.png)
 
 *   1GB of memory
 *   1 core processor
@@ -71,20 +71,20 @@ If you want, you can enable weekly backups for your droplet while you’re creat
 Once Forge provisions a droplet for you, it creates a ‘forge’ user on that VM. This user will own the source files, nginx configurations, etc.
 
 Now that we have our droplet provisioned, let’s test it to ensure everything is working properly by ssh’ing into our machine.
-
-    $ ssh -v -i ~/.ssh/laravel-forge forge@192.242.231.340
-
+```bash
+$ ssh -v -i ~/.ssh/laravel-forge forge@192.242.231.340
+```
 Let’s now add an entry to our ssh config so that we can easily obtain shell access in the future:
-
+```bash
     Host Node3
       User forge
       IdentityFile ~/.ssh/laravel-forge
       HostName 192.242.231.340
-
+```
 And finally let’s test our new config entry:
-
-    $ ssh Node3
-
+```bash
+$ ssh Node3
+```
 Most of the time we’ll want to allow Forge to administer the server for us, but sometimes you may want to ssh into your server all the same.
 
 ## Create your new site
@@ -93,18 +93,18 @@ Now that we have our droplet provisioned and tested and saved as a host in our s
 
 For the purposes of this tutorial, I’ll use my portfolio site which is a node.js application written with the Express framework. We can leave the Project Type set to General PHP / Laravel:
 
-![](/static/assets/img/do-laravel-cloudflare-screens/create-site.png)
+![Laravel forge cloudflare](/static/assets/img/do-laravel-cloudflare-screens/create-site.png)
 
 Meanwhile, we’ll provide Forge with the fully qualified URL to our git repository so that it can pull down our latest source code during a deployment:
 
-![](/static/assets/img/do-laravel-cloudflare-screens/add-repository.png)
+![Laravel forge add repo](/static/assets/img/do-laravel-cloudflare-screens/add-repository.png)
 
 ## Use PM2 to manage your node.js app
 
 PM2 is a very powerful and feature-rich process manager for node.js applications. One of the ways you can configure it to manage your application is to provide a pm2-config.json file in the root of your project, which contains a configuration object describing your application to PM2.
 
 Let’s create a pm2-config.json file in the root of our project:
-
+```javascript
     {
       "apps" : [{
         // Portfolio Application
@@ -123,36 +123,37 @@ Let’s create a pm2-config.json file in the root of our project:
         }
       }]
     }
-
+```
 This configuration gives our node application a name, which we’ll be able to use later to start and stop our process, defines the entry point as app.js, and allows us to specify which port we want our application to listen on.
 
 PM2 can do a lot, and you can find its complete documentation here. For our purposes, we just need PM2 to start and stop our node applications during deployments, and to monitor them and automatically restart them if they should die for any reason.
 
 Now that we have our pm2-config.json file in the root of our project, we can ssh into our DigitalOcean vm and globally install pm2, so that it can be used to managed all of our node apps:
-
-    $ npm i -g pm2@latest
-
+```bash
+$ npm i -g pm2@latest
+```
 ## Configure your deployment script
 
 One of the best features of Laravel Forge is the ability to define a custom deployment script. Use these to run any commands you want - Forge will execute it every time it deploys a new version of your application.
 
 Lets take a look at a deployment script for our node.js express app, now that we can use PM2 to start and stop our application:
-
-    cd /home/forge/zackproser.com
-    #Pull down latest code
-    git pull origin master
-    #Install all node dependencies
-    npm i
-    #Stop and kill previous instance of this application
-    pm2 stop "Zackproser.com Portfolio App"
-    #Daemonize portfolio application
-    pm2 start pm2-config.json
+```bash
+cd /home/forge/zackproser.com
+#Pull down latest code
+git pull origin master
+#Install all node dependencies
+npm i
+#Stop and kill previous instance of this application
+pm2 stop "Zackproser.com Portfolio App"
+#Daemonize portfolio application
+pm2 start pm2-config.json
+```
 
 In this example, we pull the latest code from our project’s master branch, install any node modules, stop any previous instance of the PM2 managed application, which we can do by name since we defined one in our pm2-config.json. This is a handy way to have PM2 manage several different node apps simultaneously. We can even ask pm2 for an easy to read status report:
-
-    $pm2 status
-
-![](/static/assets/img/do-laravel-cloudflare-screens/pm2-status.png)
+```bash
+$ pm2 status
+```
+![PM2 status](/static/assets/img/do-laravel-cloudflare-screens/pm2-status.png)
 
 ## Proxy requests to your node.js backend
 
@@ -165,7 +166,7 @@ To modify your site’s nginx configuration, while viewing your site page in the
 You’ll notice that Forge has built the nginx configuration from a template, based partially on our configuration values for this site. You definitely want to leave all of the includes that forge adds before and after the server block - else you risk making your site inoperable.
 
 The section that we’re interested in is the location block that begins with /. For a standard PHP or Laravel site, the default setting of try_files works well. In our case, we’re running a node.js process that’s bound to a specific port on our virtual machine, so we need to tell nginx that, for this particular site, inbound requests should be proxied to the node process running our application:
-
+```nginx
      location / {
             proxy_pass http://192.241.231.340:3000;
             proxy_http_version 1.1;
@@ -174,7 +175,7 @@ The section that we’re interested in is the location block that begins with /.
             proxy_set_header Host $host;
             proxy_cache_bypass $http_upgrade;
         }
-
+```
 Nginx will now pass incoming requests for this hostname to our Express application and return the response it generates to the requesting client.
 
 ## Test your deployment process
@@ -182,9 +183,9 @@ Nginx will now pass incoming requests for this hostname to our Express applicati
 We’ve got everything configured now. It’s time to ensure everything is working properly by making a small change to our app and letting Forge execute a deployment.
 
 If you have QuickDeploy enabled, make a small change of some kind (perhaps adding a new html meta tag in your header), commit your change and then:
-
-    $ git push origin master
-
+```bash
+$ git push origin master
+```
 If you don’t have QuickDeploy enabled, you can commit your code, push your changes up to your origin repository and then click the Deploy Now button on your site’s page in the Forge UI.
 
 ## Obtain your SSL cert with Let’s Encrypt
@@ -197,14 +198,14 @@ All you need in order to make this happen is a registered domain name that you c
 
 In the Site Details menu on the left hand sidebar, click SSL. Next, click LetsEncrypt. This next part is important. Before you click Obtain Certificate, ensure that you provide both your domain name without www, followed by a comma, followed by your domain name with www, as shown in this screenshot:
 
-![](/static/assets/img/do-laravel-cloudflare-screens/obtain-certificate.png)
+![LetsEncrypt certificate](/static/assets/img/do-laravel-cloudflare-screens/obtain-certificate.png)
 
 When you click Obtain Certificate, Forge will take your domains string and post it back to a service that calls Let’s Encrypt’s API. You need to tell Let’s Encrypt which domains the resulting certificate should be valid for. You should request both versions of your domain (www. and naked) - otherwise some of your users may see certificate errors, security warnings, or be unable to access your site at all.
 
 Once your certificate is obtained, it will show up below the form with a status: Installed, but not yet Active. Click the link to activate your certificate - which will modify your site’s nginx config to configure and turn on SSL termination using your new certificate. Once that step completes, test out your site by visiting:
-
-    https://<your-domain-name>
-
+```bash
+https://<your-domain-name>
+```
 You should see a green lock icon in the top left of your browser’s address bar - with no warning or exclamation point icons. If there are issues, open your browser’s developer tools to view any errors in the console.
 
 One of the most common culprits will be mixed content warnings - which occur if you’re trying to load assets (such as Javascript libraries or SDKs, images, advertisements, animations, etc) over http - even though your site is configured to use SSL. This is a security issue that browsers will complain about. If you see mixed content warnings in your console, you will need to update your application to request those assets over https. You can (change the links from http:// to https://).
@@ -217,7 +218,7 @@ Google built [a tool](https://developers.google.com/speed/pagespeed/insights/) f
 
 Let's take a look at how our site is measuring up now that we have our app deployed and securely delivered over SSL by going to Google's pagespeed tool and submitting the URL to our site:
 
-![](/static/assets/img/do-laravel-cloudflare-screens/unminified-fails.png)
+![Google PageSpeed tool](/static/assets/img/do-laravel-cloudflare-screens/unminified-fails.png)
 
 Not bad, but we can also use Cloudflare’s free plan for a big performance boost.
 
@@ -251,7 +252,7 @@ The benefit of full SSL is that the connection from our web server (our droplet)
 
 Now that our site is stood up, securely delivering content over SSL and protected and accelerated by Cloudflare, let’s see how we’re doing in terms of overall site health, load time, page weight - all of which will factor into how well our site will perform in search results:
 
-![](/static/assets/img/do-laravel-cloudflare-screens/insight-improvements.png)
+![Google PageSpeed improvements](/static/assets/img/do-laravel-cloudflare-screens/insight-improvements.png)
 
 We can see that Cloudflare has already given us a lot of the caching and minification best practices for free.
 

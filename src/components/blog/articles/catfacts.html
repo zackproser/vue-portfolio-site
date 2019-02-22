@@ -94,7 +94,7 @@ Twilio also has a concept of Twiml (Twilio Markup Language), whose usage is demo
 
 Handling Inbound Twilio-based SMS in your Express app is as simple as defining a route for Twilio to POST to when your associated Twilio number (the one you configure on your Twilio dashboard) receives an SMS message.
 
-```
+```javascript
     /**
      * Handle incoming sms commands
      *
@@ -156,7 +156,7 @@ Handling inbound calls is pretty similar, only we can use this an opportunity to
 
 When Twilio connects a phone call, it hits the endpoint you'be specified on your account dashboard and parses the Twiml that you return in order to create the call experience (saying something, playing a sound, generating a menu that the user can dial their way through, etc). We're going to do all of these now. Let's start by defining the route that Twilio will make a POST request to when someone calls our associated Twilio phone number:
 
-```
+```javascript
     /**
      * Handle a user phoning the Super CatFacts Attack Call Center
      *
@@ -172,7 +172,7 @@ When Twilio connects a phone call, it hits the endpoint you'be specified on your
 
 Our simple route accepts a POST request from Twilio, writes a Content-Type header and sends back a Twiml response, which will lead to the user hearing our menu interface spoken on the phone during their call. Let's now examine how that Twiml response is actually built:
 
-```
+```javascript
     /**
      * Generates valid Twiml that creates the Super CatFacts Attack Call Center menu experience
      *
@@ -213,7 +213,7 @@ Notice that we can play static files served by Express, because we defined our s
 
 The trickiest verb is **gather**. Similar in concept to the action property of an HTML form, we need to specify the action URL - where Twilio can go to get the response information following the user actually dialing a key for a particular menu item - in order for our IVR menu to work properly. Notice that I've specified a wildcard for the optional finishOnKey parameter. This will cause Twilio to stop listening for inputs after it gets a single keypress, which will make more sense when we next examine the function that actually handles our user's inputs:
 
-```
+```javascript
     /**
      * Handle user inputs during the CatFacts Call Center Menu
      *
@@ -298,7 +298,7 @@ I wanted to support admins sending in multiple attack commands and having the se
 
 I achieve this by having a simple script, attack.js, that actually knows how to run an attack. It gets forked by the parent process everytime a valid attack request is received by the server:
 
-```
+```javascript
     /**
      * Processes an authorized admin's attack request and launches the attack
      *
@@ -355,7 +355,7 @@ Now, let's take a look at a rudimentary manner of keeping tabs on these child pr
 
 Here's a simple way to keep tabs on the various simulatenous attacks that might be running at any given time. Each time we kick off a valid child process CatFacts attack, we store it in an app-level array:
 
-```
+```javascript
     /**
      * Adds given child_process to the app-level array of running attacks so it can be terminated later
      *
@@ -368,9 +368,9 @@ Here's a simple way to keep tabs on the various simulatenous attacks that might 
         currentAttacks.push(child_process);
         app.set('activeAttacks', currentAttacks);
     }
-
+```
 This makes it simple to look up processes later by their target_number property:
-
+```javascript
     /**
      * Helper method that determines whether or not a supplied number is currently under attack
      *
@@ -395,7 +395,7 @@ This makes it simple to look up processes later by their target_number property:
 
 When an admin sends a stop command with the number of the victim whose phone should no longer be bombarded, we need to look up the currently running attack using that number, and kill it:
 
-```
+```javascript
     /**
      * Finds a currently running attack by phone number and terminates it in response to an admin stop attack request
      *

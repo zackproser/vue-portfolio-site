@@ -4,35 +4,37 @@ Here are some helpful tips I've discovered while working with Docker:
 
 The -q flag is your friend when you're scripting out Docker commands. It stands for "quiet" and you can use across multiple Docker commands. For example:
 
-      docker ps -q
+```bash
+docker ps -q
 
-      z57uyf7022ds
-      f65f7022988d
-      sd38r7f70229
-      csji37022988
+z57uyf7022ds
+f65f7022988d
+sd38r7f70229
+csji37022988
+```
 
 This makes the q flag ideal for composing commands where the IDs of a group of images or containers into another Docker command like so:
 
 **Stop all running Docker containers**
-
-    docker stop $(docker ps -q)
-
+```bash
+docker stop $(docker ps -q)
+```
 **Tail the logs of all running containers**
-
-    docker logs -f $(docker ps -q)
-
+```bash
+docker logs -f $(docker ps -q)
+```
 **Remove all stopped containers**
-
-    docker rmi $(docker ps -aq)
-
+```bash
+docker rmi $(docker ps -aq)
+```
 ### Use xargs
 
 You can also use xargs when building multi-step Docker commands:
 
 **Docker stop running containers, if they exist**
-
-    docker ps -q | xargs -r docker stop
-
+```bash
+docker ps -q | xargs -r docker stop
+```
 By passing the xargs --no-run-if-empty or -r flag we are stating that the command, in this case Docker stop, should only be executed if the previous pipe generated output, which is to say if there actually are any Docker containers running.
 
 ## Space management
@@ -48,9 +50,9 @@ Running containers while passing the -rm flag will remove the container once you
 Your Dockerized staging hosts will eventually encounter the same problem. I like to create cron jobs that run to regularly prune unused Docker images:
 
 Here's a good one that comes from [Jérôme Petazzoni](https://twitter.com/jpetazzo/status/347431091415703552)
-
-    docker ps -a | grep 'weeks ago' | awk '{print $1}' | xargs docker rm
-
+```bash
+docker ps -a | grep 'weeks ago' | awk '{print $1}' | xargs docker rm
+```
 You can put that in a script and have a cron job run it once a week on your staging host.
 
 ### Transfer a Docker image without using a registry
@@ -58,9 +60,9 @@ You can put that in a script and have a cron job run it once a week on your stag
 Did you know that you can export a Docker image to a tar file for sharing, whenever you don't have the use of a registry for pushing and pulling images?
 
 The Docker save command takes a Docker image id and can output a tarfile like so:
-
+```bash
     docker save a3df > latest.tar
-
+```
 ## Utility Scripts
 
 ### Docker staging script
@@ -68,7 +70,7 @@ The Docker save command takes a Docker image id and can output a tarfile like so
 Speaking of using docker save to export tarfiles, here's a handy Docker staging script I wrote that only requires a single linux machine. If you are developing your Dockerized app locally on your machine, you can run this script to stage your latest work for you automatically.
 
 This script assumes that your host is running Docker and that you have ssh configured. Change the STAGING_IP variable to your machine's address:
-
+```bash
     #!/usr/bin/env bash
 
     # This script will build and stage a docker image on a linux box
@@ -116,7 +118,7 @@ This script assumes that your host is running Docker and that you have ssh confi
             * ) echo "Yes or no?";;
         esac
     done
-
+```
 This is a handy bash script for including in your project's source code, especially if your project has more than one developer working on it.
 
 This script will:
@@ -133,13 +135,13 @@ This script will:
 ### Referencing images and containers with shorthand
 
 Did you know that you can often reference a Docker image or container using just the first 3 characters of its ID?
+```bash
+docker images
 
-      docker images
+z57uyf7022ds
 
-      z57uyf7022ds
-
-      docker run -it -p 80:80 z57
-
+docker run -it -p 80:80 z57
+```
 ### Use Docker prune
 
 As of Docker 1.13, you can use Docker's prune command. Here's [a stackoverflow answer](https://stackoverflow.com/questions/32723111/how-to-remove-old-and-unused-docker-images) detailing its usage.

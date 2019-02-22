@@ -6,9 +6,19 @@ import App from './App'
 import router from './router'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import Hljs from 'highlight.js'
 import 'highlight.js/styles/monokai-sublime.css'
-import Highlight from 'vue-markdown-highlight'
 import VueAnalytics from 'vue-analytics'
+
+var Highlight = {}
+Highlight.install = function (Vue, options) {
+  Vue.directive('highlight', function (el) {
+    var blocks = el.querySelectorAll('pre code')
+    blocks.forEach(function (block) {
+      Hljs.highlightBlock(block)
+    })
+  })
+}
 
 Vue.component('navLinks', require('./components/Nav.vue').default)
 Vue.component('testimonialsCarousel', require('./components/Testimonials.vue').default)
