@@ -13,6 +13,7 @@ import ArticleOptimizer from 'html-loader!./blog/articles/open-sourced-article-o
 import CanyonRunner from 'html-loader!./blog/articles/open-source-canyonrunner.html'
 import Goodneighbor from 'html-loader!./blog/articles/goodneighbor.html'
 import Catfacts from 'html-loader!./blog/articles/catfacts.html'
+import Speakeasy from 'html-loader!./blog/articles/speakeasy.html'
 
 const writings = [{
   title: 'Create a Dockerized Express service that prevents bad builds',
@@ -32,7 +33,7 @@ const writings = [{
 },
 {
   title: 'Docker command-line tips and tricks',
-  date: '01 May 2017',
+  date: 'Who knows',
   slug: 'docker-command-line-tips-and-tricks',
   description: 'Handy tips for working with Docker',
   body: DockerTips,
@@ -40,6 +41,7 @@ const writings = [{
 },
 {
   title: 'I built a Twitter AI framework that runs accounts of any identity',
+  date: 'Who cares',
   slug: 'goodneighbor-twitter-ai-platform',
   description: 'Goodneighbor runs Twitter accounts on any subject 100% autonomously, better than a human can',
   body: Goodneighbor,
@@ -63,11 +65,18 @@ const writings = [{
 },
 {
   title: 'I built the cat facts prank into an express.js service with Twilio',
-  date: '01 May 2017',
+  date: 'HSSSSSSSSSSH motherfucker',
   slug: 'catfacts-attack-service',
   description: 'Prank your friends with the cat facts service from hell',
   body: Catfacts,
   image: '/static/assets/img/catfacts-screens/catfacts-blog.png'
+}, {
+  title: 'Speakeasy: Golang Twilio client',
+  date: 'Time is not real',
+  slug: 'speakeasy-golang-twilio',
+  description: 'Speakeasy is a Golang client for sending SMS and making calls via Twilio',
+  body: Speakeasy,
+  image: '/static/assets/img/speakeasy-screens/speakeasy-blog.png'
 }]
 
 export default {

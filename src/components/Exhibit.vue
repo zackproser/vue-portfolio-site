@@ -25,7 +25,7 @@
               >
                 <p class="card-text">{{ post.description }}</p>
                 <div slot="footer">
-                    <small>{{post.date}}</small>
+                    <small>{{post.date }}</small>
                 </div>
               </b-card>
           </b-card-group>
