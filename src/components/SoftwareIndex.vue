@@ -13,6 +13,7 @@ import PageGobblerSite from 'html-loader!./software/articles/pagegobbler-site.ht
 import RealtimeHungerMap from 'html-loader!./software/articles/realtime-hunger-map.html'
 import UsernameExtractor from 'html-loader!./software/articles/username-extractor.html'
 import WENodeSDK from 'html-loader!./software/articles/we-node-sdk.html'
+import Padscoper from 'html-loader!./software/articles/padscoper.html'
 
 const writings = [{
   title: 'A complete HTML5 game built with Phaser.js: CanyonRunner',
@@ -62,6 +63,13 @@ const writings = [{
   description: 'I wrote WealthEngine\'s first Node.js SDK',
   body: WENodeSDK,
   image: '/static/assets/img/wakka.png'
+},
+{
+  title: 'Padscoper Real estate search app',
+  slug: 'padscoper',
+  description: 'A Node.js app that allows you to search for properties within 20 miles of a given address',
+  body: Padscoper,
+  image: '/static/assets/img/padscoper-screens/padscoper-blog.png'
 }]
 
 export default {
