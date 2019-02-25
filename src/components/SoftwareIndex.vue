@@ -14,7 +14,10 @@ import RealtimeHungerMap from 'html-loader!./software/articles/realtime-hunger-m
 import UsernameExtractor from 'html-loader!./software/articles/username-extractor.html'
 import WENodeSDK from 'html-loader!./software/articles/we-node-sdk.html'
 import WEPHPSDK from 'html-loader!./software/articles/we-php-sdk.html'
+import WEPythonSDK from 'html-loader!./software/articles/we-python-sdk.html'
 import Padscoper from 'html-loader!./software/articles/padscoper.html'
+import Wisdomseeker from 'html-loader!./software/articles/wisdomseeker.html'
+import Hashtagblaster from 'html-loader!./software/articles/hashtag-blaster.html'
 
 const writings = [{
   title: 'A complete HTML5 game built with Phaser.js: CanyonRunner',
@@ -73,11 +76,31 @@ const writings = [{
   image: '/static/assets/img/wokka.png'
 },
 {
+  title: 'The first Python SDK for the WealthEngine API',
+  slug: 'wealthengine-python-sdk',
+  description: 'I wrote WealthEngine\'s first Python SDK',
+  body: WEPythonSDK,
+  image: '/static/assets/img/wikka.png'
+},
+{
   title: 'Padscoper Real estate search app',
   slug: 'padscoper',
   description: 'A Node.js app that allows you to search for properties within 20 miles of a given address',
   body: Padscoper,
   image: '/static/assets/img/padscoper-screens/padscoper-blog.png'
+}, {
+  title: 'Wisdomseeker Wikipedia crawler',
+  slug: 'wisdomseeker',
+  description: 'All Wikipedia articles eventually link back to Philosophy if you follow the first link',
+  body: Wisdomseeker,
+  image: '/static/assets/img/wisdomseeker-screens/wisdomseeker-blog.png'
+},
+{
+  title: 'Hashtag Blaster WordPress plugin',
+  slug: 'hashtag-blaster',
+  description: 'The Twitter hashtag blaster allows you to add Tweet buttons to your posts preloaded with a given hashtag for your readers',
+  body: Hashtagblaster,
+  image: '/static/assets/img/hashtag-blaster-screens/hashtag-blaster-blog.png'
 }]
 
 export default {
