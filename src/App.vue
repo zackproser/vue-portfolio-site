@@ -44,7 +44,7 @@
 export default {
   name: 'app',
   created () {
-    document.title = 'Zack Proser Portfolio Site'
+    document.title = 'Zack Proser\'s software and art'
   }
 }
 </script>
@@ -55,7 +55,7 @@ body, html {
   height: 100%;
 }
 
-a, li a, h4 {
+a, li a, h1, h2, h3, h4, p > strong > em {
   color: #00bf8f !important;
 }
 

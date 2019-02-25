@@ -13,6 +13,7 @@ import PageGobblerSite from 'html-loader!./software/articles/pagegobbler-site.ht
 import RealtimeHungerMap from 'html-loader!./software/articles/realtime-hunger-map.html'
 import UsernameExtractor from 'html-loader!./software/articles/username-extractor.html'
 import WENodeSDK from 'html-loader!./software/articles/we-node-sdk.html'
+import WEPHPSDK from 'html-loader!./software/articles/we-php-sdk.html'
 import Padscoper from 'html-loader!./software/articles/padscoper.html'
 
 const writings = [{
@@ -63,6 +64,13 @@ const writings = [{
   description: 'I wrote WealthEngine\'s first Node.js SDK',
   body: WENodeSDK,
   image: '/static/assets/img/wakka.png'
+},
+{
+  title: 'The first PHP SDK for the WealthEngine API',
+  slug: 'wealthengine-sdk-php',
+  description: 'I wrote WealthEngine\'s first PHP SDK',
+  body: WEPHPSDK,
+  image: '/static/assets/img/wokka.png'
 },
 {
   title: 'Padscoper Real estate search app',
