@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import About from '@/components/About'
 import Blog from '@/components/BlogIndex'
 import Software from '@/components/SoftwareIndex'
+import Testimonials from '@/components/TestimonialGallery'
 
 Vue.use(Router)
 
@@ -32,6 +33,11 @@ export default new Router({
       beforeEnter () {
         location.href = 'https://www.linkedin.com/in/zackproser/'
       }
+    },
+    {
+      path: '/testimonials',
+      name: 'Testimonials',
+      component: Testimonials
     },
     {
       path: '/software/:slug?',

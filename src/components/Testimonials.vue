@@ -33,6 +33,19 @@
       </testimonial-item>
 
       <testimonial-item
+        name="Sachin Fernandes"
+        title="Systems Engineer at Cloudflare"
+        quote="I have worked with Zack on multiple projects. Every one of these encounters with him has not only made me a better engineer, but a better person.
+        He is a brilliant engineer who truly cares about his code and the people who use it.
+        He has the remarkable ability to pick apart hard problems ( technical or otherwise ) and put together a solution that benefits everyone.
+        He is articulate, thoughtful, kind and exceptionally intelligent.
+        Zack is also one of the only people I have ever met to have a real world implementation of an AI bot.
+        His talents are as rare as they get and I unequivocally recommend him."
+        imgSrc="/static/assets/img/testimonials/sachin-fernandes.jpg"
+      >
+      </testimonial-item>
+
+      <testimonial-item
         name="Christian Paulus"
         title="VP Product Marketing at Cohesity"
         quote="I worked closely with Zack at Cloudflare. Zack was clearly the most talented, skilled and hard working developer in his team. I frequently tapped his brain for technical questions and he was always there to help. He is a true pleasure to work with and I can highly recommend him."

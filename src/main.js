@@ -23,6 +23,7 @@ Highlight.install = function (Vue, options) {
 Vue.component('navLinks', require('./components/Nav.vue').default)
 Vue.component('testimonialsCarousel', require('./components/Testimonials.vue').default)
 Vue.component('testimonialItem', require('./components/testimonialItem.vue').default)
+Vue.component('testimonialFlat', require('./components/testimonialFlat.vue').default)
 Vue.component('imageRow', require('./components/ImageRow.vue').default)
 Vue.component('resumeBody', require('./components/Resume.vue').default)
 Vue.component('exhibit', require('./components/Exhibit.vue').default)

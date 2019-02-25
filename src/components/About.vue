@@ -21,6 +21,7 @@
         </b-col>
         <b-col xs="12" sm="12" md="6" lg="6">
           <testimonials-carousel></testimonials-carousel>
+          <router-link class="mr-auto" to="/testimonials">Read all testimonials</router-link>
         </b-col>
       </b-row>
     </b-container>

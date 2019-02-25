@@ -55,8 +55,12 @@ body, html {
   height: 100%;
 }
 
-p a, li a, h4 {
+a, li a, h4 {
   color: #00bf8f !important;
+}
+
+a.btn {
+  color: #fff !important;
 }
 
 #app {
