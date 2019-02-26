@@ -18,6 +18,7 @@ import WEPythonSDK from 'html-loader!./software/articles/we-python-sdk.html'
 import Padscoper from 'html-loader!./software/articles/padscoper.html'
 import Wisdomseeker from 'html-loader!./software/articles/wisdomseeker.html'
 import Hashtagblaster from 'html-loader!./software/articles/hashtag-blaster.html'
+import Pageripper from 'html-loader!./software/articles/pageripper.html'
 
 const writings = [{
   title: 'A complete HTML5 game built with Phaser.js: CanyonRunner',
@@ -101,6 +102,13 @@ const writings = [{
   description: 'The Twitter hashtag blaster allows you to add Tweet buttons to your posts preloaded with a given hashtag for your readers',
   body: Hashtagblaster,
   image: '/static/assets/img/hashtag-blaster-screens/hashtag-blaster-blog.png'
+},
+{
+  title: 'Pageripper Go and React web app',
+  slug: 'pageripper',
+  description: 'A very fast web scraping app that extracts links from a webpage and lets you download them in csv form',
+  body: Pageripper,
+  image: '/static/assets/img/pageripper-screens/pageripper-blog.png'
 }]
 
 export default {
@@ -114,9 +122,8 @@ export default {
 }
 </script>
 
-<style scoped>
-
-.nameplate {
-  top: -200px !important;
+<style>
+.post-view__content p img:nth-of-type(1) {
+  margin-top: 30px;
 }
 </style>

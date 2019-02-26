@@ -103,6 +103,14 @@
         title: 'CanyonRunner HTML5 Game',
         description: 'A complete HTML5 game complete with multiple subsystems: saves, multiple levels, aerial combat, multiple ending',
         relative: true,
+      },
+      {
+        src: '/static/assets/img/pageripper-screens/pageripper-blog.png',
+        alt: 'Pageripper Golang and React app',
+        link: '/software/pageripper',
+        title: 'Pageripper',
+        description: 'Snappy React app with a Golang backend that helps you extract links from webpages quickly and download them as a CSV file with one button click',
+        relative: true
       }
       ]"
       title="Highlighted projects"
