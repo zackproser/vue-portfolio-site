@@ -19,6 +19,7 @@ import Padscoper from 'html-loader!./software/articles/padscoper.html'
 import Wisdomseeker from 'html-loader!./software/articles/wisdomseeker.html'
 import Hashtagblaster from 'html-loader!./software/articles/hashtag-blaster.html'
 import Pageripper from 'html-loader!./software/articles/pageripper.html'
+import CFTerraforming from 'html-loader!./software/articles/cf-terraforming.html'
 
 const writings = [{
   title: 'A complete HTML5 game built with Phaser.js: CanyonRunner',
@@ -109,6 +110,12 @@ const writings = [{
   description: 'A very fast web scraping app that extracts links from a webpage and lets you download them in csv form',
   body: Pageripper,
   image: '/static/assets/img/pageripper-screens/pageripper-blog.png'
+}, {
+  title: 'Cf-terraforming is an official Cloudflare CLI',
+  slug: 'cf-terraforming',
+  description: 'Cf-terraforming allows you to download your Cloudflare resources into Terraform config files',
+  body: CFTerraforming,
+  image: '/static/assets/img/blue.png'
 }]
 
 export default {
