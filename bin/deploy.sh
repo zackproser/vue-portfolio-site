@@ -2,7 +2,7 @@
 set -e
 
 ################
-# Deply script
+# Deploy script
 ################
 
 VERSION_FILE="VERSION"
