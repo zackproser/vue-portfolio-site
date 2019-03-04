@@ -20,6 +20,7 @@ import Wisdomseeker from 'html-loader!./software/articles/wisdomseeker.html'
 import Hashtagblaster from 'html-loader!./software/articles/hashtag-blaster.html'
 import Pageripper from 'html-loader!./software/articles/pageripper.html'
 import CFTerraforming from 'html-loader!./software/articles/cf-terraforming.html'
+import VuePortfolioSite from 'html-loader!./software/articles/vue-portfolio.html'
 
 const writings = [{
   title: 'A complete HTML5 game built with Phaser.js: CanyonRunner',
@@ -31,7 +32,7 @@ const writings = [{
 {
   title: 'A powerful and open source content optimizer tool',
   slug: 'free-seo-article-optimizer',
-  description: 'A full-stack app leverage natural language processing',
+  description: 'A full-stack app leveraging natural language processing',
   body: ArticleOptimizer,
   image: '/static/assets/img/optimizer-blog.png'
 },
@@ -116,6 +117,13 @@ const writings = [{
   description: 'Cf-terraforming allows you to download your Cloudflare resources into Terraform config files',
   body: CFTerraforming,
   image: '/static/assets/img/blue.png'
+},
+{
+  title: 'This very website',
+  slug: 'vue-portfolio-site',
+  description: 'I built my portfolio site to my exact specifications using Vue.js and VueBootstrap',
+  body: VuePortfolioSite,
+  image: '/static/assets/img/portfolio-screens/zackproser-com-blog.png'
 }]
 
 export default {
