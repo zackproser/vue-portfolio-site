@@ -35,6 +35,12 @@
   "imgSrc": "/static/assets/img/testimonials/christian-paulus.jpg"
 },
 {
+  "name": "Tom Luechtefeld",
+  "title": "Data scientist at Sysrev.com and Chemchart.com",
+  "quote": "Zack helped us build web applications for our cancer clinical trial research studies. He was a pleasure to work with, I frequently come back to ask his advice on our other web development projects. If you have an opportunity to work with Zack you should take it.",
+  "imgSrc": "/static/assets/img/testimonials/tom-luechtefeld.jpg"
+},
+{
   "name": "Anthony Davanzo",
   "title": "Technical Product Marketing Manager at HashiCorp",
   "quote": "Zack is exactly the type of engineer you want on your team. He's smart, collaborative, and tremendously effective. Zack and I worked together building tools and websites to drive revenue and customer success. When challenging ideas were presented, Zack would jump at the opportunity to learn without any hint of hesitation to take on difficulty. Personally, he 's kind, willing to help, and keeps a good sense of humor.",
