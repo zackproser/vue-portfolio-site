@@ -17,6 +17,12 @@
   "imgSrc": "/static/assets/img/testimonials/evelyn-tam.jpg"
 },
 {
+ "name": "Tom Landesman",
+ "title": "Security focused data scientist at Proofpoint",
+ "quote": "Take a look at the span of job titles, levels of seniority, and teams reflected in Zack's other recommendations. It's clear Zack brings the same level of near-crazy passion and dedication from his art to every aspect of his professional work. Whether it was cross-team collaboration, picking up a new technology, or complex problem solving, Zack excelled without skipping a beat. From my view, Zack's most impressive, and all-too-rare, trait is deep introspection. Given a problematic shortcoming or knowledge gap, he wields this introspection to quickly diagnose and navigate past situations that would pose as major hurdles to most people. Teapot approved, A+",
+ "imgSrc": "/static/assets/img/testimonials/tom-landesman.jpg"
+},
+{
   "name": "Steven Fusco",
   "title": "Senior Software Developer, R&D at AlienVault",
   "quote": "Zack is a great addition to any development team. He thinks fast, adapts to shifting requirements, and has proven he can quickly ramp up on the latest technologies to put them to good use.",
