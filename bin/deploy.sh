@@ -10,6 +10,8 @@ CURRENT_VERSION=$(cat $VERSION_FILE)
 NEXT_VERSION="$(($CURRENT_VERSION + 1))"
 RELEASE_SLUG="Release #$NEXT_VERSION"
 
+git push github github && \
+
 echo "Commencing portfolio production deploy..."
 
 npm run build && \
