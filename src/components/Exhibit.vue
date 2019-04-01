@@ -20,7 +20,6 @@
                 v-for="post in posts.slice((i - 1) * 3, i * 3)"
                 :key="post.slug"
                 @click="changePost(post.slug)"
-                img-height="200"
                 img-top
               >
                 <p class="card-text">{{ post.description }}</p>
