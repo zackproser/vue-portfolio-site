@@ -5,6 +5,12 @@
   "imgSrc": "/static/assets/img/testimonials/john-funge.jpg"
 },
 {
+  "name": "Philina Fan", 
+  "title": "Product Designer at Asana", 
+  "quote": "In my nearly two years at Cloudflare, I have had the pleasure of working closely with Zack. He is one of the most hardworking and self-motivated individuals I have ever met. He constantly does outstanding work and will go above and beyond on any project that he is part of. He has also always been a kind and patient teacher to me, whenever I had any inquiries about implementation. He is someone I would highly recommend for any future opportunities as he would be a valuable asset to any team he joins.",
+  "imgSrc": "/static/assets/img/testimonials/philina.jpg"
+}, 
+{
   "name": "Leo Scott",
   "title": "CTO at WealthEngine",
   "quote": "Zack is an all-round business athlete. Whether he’s helping to brainstorm viral marketing strategies or working on your development team he’s going to provide a ton of value. He’s a fast learner and a hard worker, and is fun to work with.",
@@ -16,6 +22,12 @@
   "quote": "Having a dedicated developer for a Marketing team is hard to come by, especially if they are a good one. Working with Zack at Cloudmark was the best. He always had a collaborative, team player mentality and exceeded expectations on all assigned projects, even those that required a quick turnaround. More importantly, Zack had great communications skills - from proactively providing a project status to any red flags during initial conversations. I would work with Zack again in a heartbeat.",
   "imgSrc": "/static/assets/img/testimonials/evelyn-tam.jpg"
 },
+{
+  "name": "George Riedel", 
+  "title": "CEO at Cloudmark. Professor at Harvard Business School", 
+  "quote": "Zack was an amazing contributor on the UX frontend for a new product we were launching. It was both a new market (Enterprise) and and new product (Spear phishing). As a result - it required a fair amount of intuitive design experience and iterative patience. Zack and his colleagues were instrumental in getting early versions of the UX built and adapting it as we developed insights into both how the user might experience things AND how the technology would interpret things. A very strong contributor to a new initiative and a dynamic environment.",
+  "imgSrc": "/static/assets/img/testimonials/george.jpg"
+}, 
 {
  "name": "Tom Landesman",
  "title": "Security focused data scientist at Proofpoint",
@@ -42,7 +54,7 @@
 },
 {
   "name": "Tom Luechtefeld",
-  "title": "Data scientist at Sysrev.com and Chemchart.com",
+  "title": "Data scientist at Sysrev.com, Chemchart.com, Johns Hopkins",
   "quote": "Zack helped us build web applications for our cancer clinical trial research studies. He was a pleasure to work with, I frequently come back to ask his advice on our other web development projects. If you have an opportunity to work with Zack you should take it.",
   "imgSrc": "/static/assets/img/testimonials/tom-luechtefeld.jpg"
 },
