@@ -106,17 +106,6 @@ export default {
   border: 2px solid #ddd;
 }
 
-.testimonial-firm {
-  color: #000;
-  font-size: 14px;
-  font-weight: 800;
-  line-height: 1.5em;
-  margin: 0;
-  text-transform: uppercase;
-  font-style: italic;
-  font-weight: lighter
-}
-
 div.carousel-caption {
     position: initial !Important;
     padding-top: 0px;

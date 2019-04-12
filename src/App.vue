@@ -121,4 +121,14 @@ a.btn {
 p.professional-title {
   font-size: 26px;
 }
+
+.testimonial-firm {
+  color: #00bf8f;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.5em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
 </style>
