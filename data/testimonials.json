@@ -23,6 +23,12 @@
   "imgSrc": "/static/assets/img/testimonials/evelyn-tam.jpg"
 },
 {
+  "name": "Venkat Viswanathan",
+  "title": "Software engineer at Cloudflare",
+  "quote": "I had the opportunity to work with Zack at Cloudflare. Zack is very hard working and self motivated. Whenever he is given a new task he puts in the effort to learn and successfully complete it. But the most important quality I admire is he makes sure he shares that knowledge with everyone and always willing to help. Zack is amazing to work with and a great asset to the team.",
+  "imgSrc": "/static/assets/img/testimonials/venkat.jpg"
+},
+{
   "name": "George Riedel", 
   "title": "CEO at Cloudmark. Professor at Harvard Business School", 
   "quote": "Zack was an amazing contributor on the UX frontend for a new product we were launching. It was both a new market (Enterprise) and and new product (Spear phishing). As a result - it required a fair amount of intuitive design experience and iterative patience. Zack and his colleagues were instrumental in getting early versions of the UX built and adapting it as we developed insights into both how the user might experience things AND how the technology would interpret things. A very strong contributor to a new initiative and a dynamic environment.",
