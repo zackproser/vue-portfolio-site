@@ -63,6 +63,15 @@
     <image-row
      :images="[
       {
+        src :'/static/assets/img/writings/catfacts-prank.png',
+        alt: 'Catfacts Prank',
+        link: 'https://medium.com/@zackproser/building-a-catfacts-pranking-service-in-golang-5b51e8721fe2?source=friends_link&sk=8b97968fa6fdbf51cbb0bd3b5983c674',
+        title: 'Building CatFacts in Golang',
+        description: 'A full tutorial walking through building the CatFacts golang prank and deploying it via Kubernetes',
+        date: 'October 20 2019',
+        relative: false
+      },
+      {
         src: '/static/assets/img/writings/cf-terraforming.png',
         alt: 'Cf-terraforming utility',
         link: 'https://blog.cloudflare.com/introducing-cf-terraform/',

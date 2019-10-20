@@ -12,6 +12,7 @@
               :title="image.title"
               :img-src="image.src"
               class="post my-3"
+              body-class=" d-flex flex-column"
               :key="image.src"
               img-top
             >
@@ -26,6 +27,7 @@
                   :href="image.link"
                   variant="success"
                   size="lg"
+                  class="mt-auto"
                 >
                   Read
                 </b-button>
